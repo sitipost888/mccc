@@ -22,17 +22,14 @@
   :root {
     --bg: #0a0a0f;
     --bg2: #111118;
-    --bg3: #18181f;
+    --bg3: #1a1a1f;
     --accent: #c8a96e;
     --accent2: #e8c989;
     --text: #f0ede8;
     --muted: #8a8880;
     --border: rgba(200, 169, 110, 0.18);
     --white: #ffffff;
-    --rosewood-line: #C96B6B;
-    --hunter-green-line: #355E3B;
     --quote-text: #d5d2cc;
-    --sense-line: var(--accent);
   }
 
   html {
@@ -46,16 +43,6 @@
     font-size: 16px;
     line-height: 1.7;
     overflow-x: hidden;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
   }
 
   nav {
@@ -109,7 +96,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 8rem 2rem 5rem;
+    padding: 6rem 2rem 4rem;
     max-width: 1100px;
     margin: 0 auto;
     z-index: 1;
@@ -153,7 +140,7 @@
     font-size: clamp(1rem, 2vw, 1.2rem);
     color: var(--muted);
     max-width: 580px;
-    margin-bottom: 2.5rem;
+    margin-bottom: 5rem;
     line-height: 1.65;
   }
 
@@ -177,57 +164,13 @@
     border-radius: 5px;
     text-decoration: none;
     transition: background 0.2s, transform 0.15s;
+    border: none;
+    cursor: pointer;
   }
 
   .btn-primary:hover {
     background: var(--accent2);
     transform: translateY(-1px);
-  }
-
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: transparent;
-    color: var(--text);
-    font-family: 'Golos Text', sans-serif;
-    font-weight: 500;
-    font-size: 1rem;
-    padding: 0.9rem 1.5rem;
-    border-radius: 5px;
-    border: 1px solid var(--border);
-    text-decoration: none;
-    transition: border-color 0.2s;
-  }
-
-  .btn-ghost:hover {
-    border-color: var(--accent);
-  }
-
-  .hero-proof {
-    margin-top: 3rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-
-  .proof-item {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .proof-num {
-    font-family: 'Golos Text', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--accent);
-    line-height: 1;
-  }
-
-  .proof-label {
-    font-size: 0.82rem;
-    color: var(--muted);
-    margin-top: 0.2rem;
   }
 
   section {
@@ -286,7 +229,7 @@
     background: var(--bg3);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    padding: 4rem 2rem;
+    padding: 3.5rem 2rem;
     text-align: center;
     position: relative;
     z-index: 1;
@@ -294,9 +237,9 @@
 
   .top-quote {
     font-family: 'Golos Text', sans-serif;
-    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
     font-weight: 600;
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
     line-height: 1.5;
     color: var(--text);
@@ -307,7 +250,6 @@
     color: var(--accent);
   }
 
-  /* WHY NORMAL SITES DONT WORK */
   .why-section {
     background: var(--bg);
     padding: 6rem 2rem;
@@ -317,10 +259,10 @@
   }
 
   .why-intro {
-    font-size: 0.94rem;
-    color: var(--text);
+    font-size: 0.82rem;
+    color: var(--muted);
     line-height: 1.7;
-    max-width: 620px;
+    max-width: 500px;
     margin-bottom: 2.5rem;
     font-family: 'Golos Text', sans-serif;
     font-weight: 400;
@@ -443,6 +385,28 @@
     font-size: 1rem;
     margin-bottom: 1.5rem;
     font-family: 'Golos Text', sans-serif;
+  }
+
+  /* Eagle Eye */
+  .eagle-section {
+    background: var(--bg);
+    padding: 3rem 2rem 5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .eagle-block {
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: 'Golos Text', sans-serif;
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 0.95rem;
+  }
+
+  .eagle-block strong {
+    color: var(--accent);
+    font-weight: 600;
   }
 
   .solution-section {
@@ -709,6 +673,30 @@
     font-size: 0.9rem;
     color: var(--muted);
     line-height: 1.7;
+  }
+
+  /* Boutique note */
+  .boutique-section {
+    background: var(--bg2);
+    padding: 2rem 2rem 4rem;
+    text-align: center;
+  }
+
+  .boutique-block {
+    max-width: 650px;
+    margin: 0 auto;
+    font-family: 'Golos Text', sans-serif;
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
+  /* CTA after manifest */
+  .cta-after-manifest {
+    text-align: center;
+    padding: 3rem 2rem 5rem;
+    background: var(--bg2);
   }
 
   .faq-section {
@@ -1032,94 +1020,6 @@
     }
   }
 
-  .sticky-cta {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 200;
-    padding: 1rem;
-    background: rgba(10, 10, 15, 0.95);
-    border-top: 1px solid var(--border);
-    backdrop-filter: blur(12px);
-  }
-
-  .sticky-cta a {
-    display: block;
-    text-align: center;
-    background: var(--accent);
-    color: #0a0a0f;
-    font-family: 'Golos Text', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 1rem;
-    border-radius: 8px;
-    text-decoration: none;
-  }
-
-  @media (max-width: 600px) {
-    .sticky-cta {
-      display: block;
-    }
-    nav a.cta-nav {
-      display: none;
-    }
-    .hero {
-      padding-top: 6rem;
-    }
-  }
-
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(24px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .hero>* {
-    animation: fadeUp 0.6s ease both;
-  }
-
-  .hero>*:nth-child(1) {
-    animation-delay: 0.1s;
-  }
-  .hero>*:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  .hero>*:nth-child(3) {
-    animation-delay: 0.3s;
-  }
-  .hero>*:nth-child(4) {
-    animation-delay: 0.4s;
-  }
-  .hero>*:nth-child(5) {
-    animation-delay: 0.5s;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background-image: linear-gradient(rgba(200, 169, 110, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(200, 169, 110, 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
-  }
-
-  .hero-glow {
-    position: absolute;
-    top: 20%;
-    left: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(200, 169, 110, 0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
   .process-section {
     background: var(--bg3);
   }
@@ -1161,9 +1061,6 @@
   }
 
   @media (max-width: 500px) {
-    .hero-proof {
-      gap: 1.5rem;
-    }
     .solution-grid,
     .manifest-grid {
       grid-template-columns: 1fr;
@@ -1192,9 +1089,7 @@
   </nav>
 
   <!-- HERO -->
-  <section style="padding:0; position:relative; overflow:hidden;">
-    <div class="hero-bg"></div>
-    <div class="hero-glow"></div>
+  <section style="padding:0; position:relative;">
     <div class="hero">
       <div class="hero-eyebrow">Маркетинговые сайты со смыслом</div>
       <h1>Ваш сайт есть.<br>Через какие <em>смыслы</em><br>он продаёт?</h1>
@@ -1202,27 +1097,13 @@
       <div class="hero-cta-row">
         <a href="#why" class="btn-primary">Узнать метод ↓</a>
       </div>
-      <div class="hero-proof">
-        <div class="proof-item">
-          <span class="proof-num">6 лет</span>
-          <span class="proof-label">в маркетинге и смыслах</span>
-        </div>
-        <div class="proof-item">
-          <span class="proof-num">65 000 ₽</span>
-          <span class="proof-label">фиксированная цена</span>
-        </div>
-        <div class="proof-item">
-          <span class="proof-num">1</span>
-          <span class="proof-label">точка контакта — основатель</span>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- TOP QUOTE -->
   <div class="top-quote-section">
     <p class="top-quote">
-      Пока клиент не видит разницы — он сравнивает цены.<br><em>Смыслы убирают сравнение.</em> Даже если вокруг демпингуют.
+      Пока клиент не видит разницы —<br>он сравнивает цены.<br><em>Смыслы убирают сравнение.</em><br>Даже если вокруг демпингуют.
     </p>
   </div>
 
@@ -1234,8 +1115,8 @@
       <div class="why-intro">
         <p>Не потому что дизайн плохой.<br>
         Не потому что мало трафика.<br>
-        А потому что человек не понимает главное:<br>
-        <strong>зачем ему идти именно к вам.</strong></p>
+        А потому что не понимают главное:<br>
+        <strong>почему выбрать именно вас.</strong></p>
       </div>
 
       <div class="what-happens">
@@ -1251,7 +1132,7 @@
 
       <div class="what-changes">
         <h3>Что меняется, когда смысл на месте</h3>
-        <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1.2rem;">Сайт перестаёт быть просто страницей. Он становится продажником — объясняет, убеждает, ведёт к действию.</p>
+        <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1.2rem;">Сайт перестаёт быть просто красивой страницей. Он становится вашим лучшим менеджером по продажам 24/7 — объясняет, убеждает, ведёт к действию.</p>
         <ul>
           <li>человек понимает за первые 3–5 секунд: <strong style="color:var(--text);">это то, что я искал</strong></li>
           <li>все возражения отпадают сами собой</li>
@@ -1269,6 +1150,14 @@
       <div class="method-link-block">
         <p>Это и есть метод МСС. Вот как мы это делаем ↓</p>
       </div>
+    </div>
+  </section>
+
+  <!-- EAGLE EYE -->
+  <section class="eagle-section">
+    <div class="eagle-block">
+      <strong>Наш метод — «Глаз орла»</strong><br><br>
+      Мы смотрим на задачи с высоты опыта. Видим смыслы, которые не видят другие. Замечаем детали, создающие впечатление, и точно соединяем их в работающий механизм. Ничего лишнего — только точность, глубина и результат.
     </div>
   </section>
 
@@ -1479,7 +1368,7 @@
       <div class="price-box">
         <div class="price-tag">65 000 ₽</div>
         <p class="price-note">Фиксированная цена. Без скрытых платежей.</p>
-        <div class="urgency-badge">Принимаю ограниченное число проектов</div>
+        <div class="urgency-badge">Принимаем ограниченное число проектов</div>
         <div class="price-includes">
           <div class="price-include">Поиск сути и манифест</div>
           <div class="price-include">Маркетинговые тексты</div>
@@ -1619,6 +1508,18 @@
     </div>
   </section>
 
+  <!-- BOUTIQUE NOTE -->
+  <section class="boutique-section">
+    <div class="boutique-block">
+      Мы работаем по концепции бутик-отеля. У нас нет потока или конвейера. К каждому сайту подходим индивидуально, закладываем в него личные ценности основателя. Мы погружаемся в смыслы, чтобы создать продукт, который будет работать годами. Не «красиво и продающе», а глубоко и по-настоящему.
+    </div>
+  </section>
+
+  <!-- CTA AFTER MANIFEST -->
+  <section class="cta-after-manifest">
+    <a href="#contact" class="btn-primary" style="font-size:1.1rem; padding:1rem 2.5rem;">Стать единственным выбором →</a>
+  </section>
+
   <!-- CONTACT FORM -->
   <section class="form-section" id="contact">
     <div class="container">
@@ -1691,11 +1592,6 @@
     <p>Маркетинговые сайты со смыслом | Telegram, MAX: <a href="https://max.ru/+79235703335" style="color:var(--accent); text-decoration:none;">+7 923 570-33-35</a> | <a href="tel:+79235703335" style="color:var(--accent); text-decoration:none;">+7 923 570-33-35</a></p>
     <p style="margin-top:0.5rem;">© 2026 МСС. Все права защищены.</p>
   </footer>
-
-  <!-- STICKY MOBILE CTA -->
-  <div class="sticky-cta">
-    <a href="#contact">Стать единственным выбором →</a>
-  </div>
 
   <script>
     function toggleFaq(btn) {
