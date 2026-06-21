@@ -1,3 +1,12 @@
+Понял! Исправляю:
+
+**"Подробнее → Отправим файл по запросу"** — **обычный текст, НЕ кликабельный**
+
+---
+
+Вот полный код со всеми правками:
+
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -225,6 +234,38 @@
     font-size: 1.05rem;
   }
 
+  /* INTRO BLOCK */
+  .intro-block {
+    background: var(--bg3);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 3.5rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .intro-text {
+    font-family: 'Golos Text', sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    font-weight: 400;
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: var(--text);
+    text-align: center;
+  }
+
+  .intro-text .highlight {
+    color: var(--accent);
+  }
+
+  .intro-text strong {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  /* TOP QUOTE */
   .top-quote-section {
     background: var(--bg3);
     border-top: 1px solid var(--border);
@@ -237,8 +278,8 @@
 
   .top-quote {
     font-family: 'Golos Text', sans-serif;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    font-weight: 600;
+    font-size: clamp(0.95rem, 2.2vw, 1.3rem);
+    font-weight: 400;
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.5;
@@ -308,11 +349,18 @@
   }
 
   .what-happens ul li::before {
-    content: '—';
+    content: '-';
     position: absolute;
     left: 0;
     color: var(--muted);
     opacity: 0.5;
+  }
+
+  .what-happens .problem-text {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: normal;
+    margin-top: 1rem;
   }
 
   .what-changes {
@@ -350,7 +398,7 @@
   }
 
   .what-changes ul li::before {
-    content: '—';
+    content: '-';
     position: absolute;
     left: 0;
     color: var(--muted);
@@ -415,7 +463,7 @@
 
   .solution-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
     margin-top: 3rem;
   }
@@ -464,87 +512,252 @@
 
   .solution-card p {
     font-size: 0.88rem;
-    color: var(--muted);
+    color: #b0aea6;
   }
 
-  .forwhom-section {
+  /* CHAIN SECTION */
+  .chain-section {
     background: var(--bg2);
+    padding: 5rem 2rem;
+    border-bottom: 1px solid var(--border);
   }
 
-  .industries-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1rem;
-    margin-top: 2.5rem;
+  .chain-container {
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
-  .industry-tag {
-    background: var(--bg3);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 6px;
-    padding: 1rem 1.2rem;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--text);
+  .chain-title {
     text-align: center;
-    transition: border-color 0.2s, color 0.2s;
-    cursor: default;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 3rem;
   }
 
-  .industry-tag:hover {
-    border-color: var(--accent);
+  .chain-title em {
+    font-style: normal;
     color: var(--accent);
   }
 
-  .includes-section {
-    background: var(--bg);
-  }
-
-  .includes-list {
+  .chain-wrapper {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2.5rem;
-    max-width: 700px;
-  }
-
-  .include-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.2rem;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.4rem 1.6rem;
-  }
-
-  .include-check {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-    background: var(--accent);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
-    margin-top: 2px;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
 
-  .include-check svg {
-    width: 12px;
-    height: 12px;
+  .chain-item {
+    flex: 1;
+    min-width: 200px;
+    max-width: 240px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.8rem 1.2rem;
+    text-align: center;
+    position: relative;
+    transition: border-color 0.3s, transform 0.2s;
   }
 
-  .include-item h3 {
+  .chain-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  .chain-item .step-label {
     font-family: 'Golos Text', sans-serif;
-    font-size: 0.88rem;
+    font-size: 1.1rem;
     font-weight: 600;
+    color: var(--accent);
     margin-bottom: 0.6rem;
   }
 
-  .include-item p {
-    font-size: 0.85rem;
+  .chain-item .step-desc {
+    font-size: 0.82rem;
     color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .chain-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--accent);
+    opacity: 0.5;
+    flex-shrink: 0;
+    min-width: 30px;
+  }
+
+  @media (max-width: 768px) {
+    .chain-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+    .chain-item {
+      max-width: 100%;
+      width: 100%;
+    }
+    .chain-arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  /* COMPARISON SECTION */
+  .comparison-section {
+    background: var(--bg);
+    padding: 5rem 2rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 0;
+    margin-top: 2.5rem;
+    margin-bottom: 0;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+  }
+
+  .comparison-header .header-left {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-right: none;
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text);
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .comparison-header .header-right {
+    background: rgba(200, 169, 110, 0.08);
+    border: 1px solid var(--accent);
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+  }
+
+  .comparison-row .row-left {
+    background: var(--bg2);
+    border-left: 1px solid var(--border);
+    border-right: none;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .comparison-row .row-left .label {
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+
+  .comparison-row .row-left .text {
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .comparison-row .row-right {
+    background: rgba(200, 169, 110, 0.08);
+    border: 1px solid var(--accent);
+    border-left: 1px solid var(--accent);
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .comparison-row .row-right .text {
+    font-size: 0.88rem;
+    color: var(--white);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* Мобильная версия - плитка */
+  @media (max-width: 680px) {
+    .comparison-header {
+      display: none;
+    }
+
+    .comparison-row {
+      display: block;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+    }
+
+    .comparison-row .row-left {
+      border: none;
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 1.2rem;
+      background: var(--bg2);
+    }
+
+    .comparison-row .row-left .label {
+      font-size: 0.7rem;
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .comparison-row .row-left .text {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .comparison-row .row-right {
+      border: none;
+      padding: 1.2rem 1.2rem;
+      background: rgba(200, 169, 110, 0.08);
+    }
+
+    .comparison-row .row-right .text {
+      font-size: 0.88rem;
+      color: var(--white);
+      line-height: 1.6;
+      font-weight: 400;
+    }
   }
 
   .price-section {
@@ -589,24 +802,11 @@
     letter-spacing: 0.02em;
   }
 
-  .price-includes {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    margin-bottom: 2rem;
-  }
-
-  .price-include {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    font-size: 0.9rem;
-  }
-
-  .price-include::before {
-    content: '✦';
-    color: var(--accent);
-    font-size: 0.7rem;
+  .price-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
   }
 
   .urgency-badge {
@@ -621,6 +821,145 @@
     padding: 0.4rem 1rem;
     border-radius: 4px;
     margin-bottom: 1.5rem;
+  }
+
+  /* CASE SECTION */
+  .case-section {
+    background: var(--bg);
+    padding: 5rem 2rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .case-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2.5rem;
+  }
+
+  .case-image {
+    position: relative;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    max-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .case-content h3 {
+    font-family: 'Golos Text', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .case-content h3 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .case-content .case-label {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-content .case-desc {
+    color: var(--text);
+    font-size: 0.82rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+  }
+
+  .case-content .case-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-content .case-list li {
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.6;
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+  }
+
+  .case-content .case-list li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    opacity: 0.6;
+  }
+
+  .case-content .case-link-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .case-content .case-link-wrapper .label-text {
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 400;
+  }
+
+  .case-content .case-link-wrapper .case-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .case-content .case-link-wrapper .case-link:hover {
+    text-decoration: underline;
+  }
+
+  .case-content .case-readmore-text {
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  .case-content .case-readmore-note {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+  }
+
+  @media (max-width: 680px) {
+    .case-wrapper {
+      grid-template-columns: 1fr;
+    }
+    .case-image {
+      aspect-ratio: 16 / 9;
+      max-height: 300px;
+    }
   }
 
   .manifest-section {
@@ -699,6 +1038,18 @@
     background: var(--bg2);
   }
 
+  .cta-after-manifest .btn-primary {
+    font-size: 1rem;
+    padding: 0.9rem 2rem;
+  }
+
+  @media (max-width: 680px) {
+    .cta-after-manifest .btn-primary {
+      font-size: 0.85rem;
+      padding: 0.7rem 1.5rem;
+    }
+  }
+
   .faq-section {
     background: var(--bg);
   }
@@ -712,6 +1063,15 @@
     border: 1px solid var(--border);
     border-radius: 10px;
     overflow: hidden;
+  }
+
+  @media (max-width: 680px) {
+    .faq-list {
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      border-radius: 0;
+    }
   }
 
   .faq-item {
@@ -835,6 +1195,17 @@
     text-decoration: none;
   }
 
+  .contact-phone {
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+
+  .contact-phone a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
   form {
     background: var(--bg3);
     border: 1px solid var(--border);
@@ -937,6 +1308,18 @@
     margin-bottom: 0.5rem;
   }
 
+  .footer-top {
+    display: inline-block;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+
+  .footer-top:hover {
+    text-decoration: underline;
+  }
+
   .quote-section {
     background: var(--bg);
     padding: 6rem 2rem;
@@ -955,11 +1338,11 @@
   }
 
   .quote-photo {
-    width: 130px;
-    height: 130px;
+    width: 260px;
+    height: 260px;
     flex-shrink: 0;
     border-radius: 50%;
-    border: 2px solid var(--accent);
+    border: 1px solid var(--accent);
     background: var(--bg3);
     display: flex;
     align-items: center;
@@ -978,7 +1361,7 @@
     flex: 1;
   }
 
-  .quote-text blockquote {
+  .quote-text .quote-manifest {
     font-family: 'Golos Text', sans-serif;
     font-size: 0.95rem;
     font-weight: 300;
@@ -988,6 +1371,14 @@
     margin-bottom: 1.2rem;
     letter-spacing: 0.02em;
     opacity: 1;
+  }
+
+  .quote-text .quote-manifest p {
+    margin-bottom: 0.8rem;
+  }
+
+  .quote-text .quote-manifest p:last-child {
+    margin-bottom: 0;
   }
 
   .quote-author {
@@ -1012,11 +1403,17 @@
       gap: 2rem;
     }
     .quote-photo {
-      width: 110px;
-      height: 110px;
+      width: 220px;
+      height: 220px;
     }
-    .quote-text blockquote {
+    .quote-text .quote-manifest {
       font-size: 0.9rem;
+    }
+    .contact-line {
+      justify-content: center;
+    }
+    .contact-phone {
+      text-align: center;
     }
   }
 
@@ -1060,6 +1457,29 @@
     color: var(--muted);
   }
 
+  .process-text-block {
+    margin-top: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .process-text-block p {
+    font-size: 0.92rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+  }
+
+  .process-text-block p:last-child {
+    margin-bottom: 0;
+  }
+
+  .process-text-block .highlight {
+    color: var(--accent);
+  }
+
   @media (max-width: 500px) {
     .solution-grid,
     .manifest-grid {
@@ -1093,17 +1513,20 @@
     <div class="hero">
       <div class="hero-eyebrow">Маркетинговые сайты со смыслом</div>
       <h1>Ваш сайт есть.<br>Через какие <em>смыслы</em><br>он продаёт?</h1>
-      <p class="hero-sub">Делаем сайты, которые не просто рассказывают о вас, а делают ваш бизнес единственным выбором. Через смыслы, ценности и манифест.</p>
+      <p class="hero-sub">Формируем восприятие бизнеса, которое работает на желание, доверие и продажи.</p>
       <div class="hero-cta-row">
         <a href="#why" class="btn-primary">Узнать метод ↓</a>
       </div>
     </div>
   </section>
 
-  <!-- TOP QUOTE -->
-  <div class="top-quote-section">
-    <p class="top-quote">
-      Пока клиент не видит разницы —<br>он сравнивает цены.<br><em>Смыслы убирают сравнение.</em><br>Даже если вокруг демпингуют.
+  <!-- INTRO BLOCK -->
+  <div class="intro-block">
+    <p class="intro-text">
+      У вас уже есть хороший продукт. У вас уже есть услуга, которая действительно делает жизнь клиента лучше. Вы вложили миллионы, месяцы и бесконечное количество сил и эмоций в создание этого.
+    </p>
+    <p class="intro-text" style="margin-top:0.5rem;">
+      Но обычный сайт уже не может передать всю ценность и душу вашего дела. <span class="highlight">Именно тогда поможет сайт со смыслом по методу МСС.</span> Ознакомьтесь ниже с нашим подходом.
     </p>
   </div>
 
@@ -1127,24 +1550,24 @@
           <li>приходят «не те» клиенты или вообще никто</li>
           <li>решение откладывается: «подумаю», «дорого», «не сейчас»</li>
         </ul>
-        <p style="font-weight:600; margin-top:1rem; font-size:0.9rem; color: var(--text);">Это и есть недостаток смысла.</p>
+        <div class="problem-text">Это не проблема дизайна. Это проблема отсутствия смыслов</div>
       </div>
 
       <div class="what-changes">
         <h3>Что меняется, когда смысл на месте</h3>
-        <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1.2rem;">Сайт перестаёт быть просто красивой страницей. Он становится вашим лучшим менеджером по продажам 24/7 — объясняет, убеждает, ведёт к действию.</p>
+        <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1.2rem;">Сайт перестаёт быть просто красивой страницей. Он становится вашим лучшим менеджером по продажам 24/7 - объясняет, убеждает, ведёт к действию.</p>
         <ul>
-          <li>человек понимает за первые 3–5 секунд: <strong style="color:var(--text);">это то, что я искал</strong></li>
+          <li>человек понимает за первые 3-5 секунд: <strong style="color:var(--text);">это то, что я искал</strong></li>
           <li>все возражения отпадают сами собой</li>
-          <li>менеджеры не продают — доверие приходит заранее</li>
+          <li>вам не нужно доказывать и убеждать. Клиент уже доверяет вам после изучения сайта</li>
           <li>заявка становится очевидным и логичным шагом, а не мучительным решением</li>
         </ul>
       </div>
 
       <div class="sense-definition">
-        <p>Смысл — это не слова на странице.<br>
-        Это точка, где совпадает: ваш продукт, проблема клиента, его мотивация.</p>
-        <p style="margin-top:0.8rem;">Когда эта точка найдена — сайт начинает <strong>работать на вас 24/7</strong>.</p>
+        <p>Смысл - это не просто формулировки текста.<br>
+        Это точка, где совпадает: ваш продукт, желания клиента, его мотивация.</p>
+        <p style="margin-top:0.8rem;">Когда эта точка найдена - сайт начинает <strong>работать на вас 24/7</strong>.</p>
       </div>
 
       <div class="method-link-block">
@@ -1156,8 +1579,8 @@
   <!-- EAGLE EYE -->
   <section class="eagle-section">
     <div class="eagle-block">
-      <strong>Наш метод — «Глаз орла»</strong><br><br>
-      Мы смотрим на задачи с высоты опыта. Видим смыслы, которые не видят другие. Замечаем детали, создающие впечатление, и точно соединяем их в работающий механизм. Ничего лишнего — только точность, глубина и результат.
+      <strong>Наш метод - «Глаз орла»</strong><br><br>
+      Глаз орла устроен иначе: он видит дальше, замечает мельчайшие движения и не теряет фокус. Так работает наш метод. Замечаем детали, создающие впечатление, и точно соединяем их в работающий механизм. Ничего лишнего - только точность, глубина и результат.
     </div>
   </section>
 
@@ -1165,157 +1588,121 @@
   <section class="solution-section" id="approach">
     <div class="container">
       <div class="section-label">Инженерный подход</div>
-      <h2><em>Инженерный подход</em><br>к сайту</h2>
-      <p class="section-desc">Мы относимся к сайту как к точному механизму. Каждый элемент — это деталь, которая выполняет свою функцию.</p>
+      <h2><em>Инженерный подход</em><br>к созданию <span style="color: #ffffff;">системы смыслов</span></h2>
+      <p class="section-desc">Мы относимся к сайту как к точному механизму. Каждый элемент - это деталь, которая выполняет свою функцию.</p>
       <div class="solution-grid">
         <div class="solution-card">
           <div class="solution-num">01</div>
-          <h3>Инженерный подход к сайту</h3>
-          <p>Заголовок мгновенно привлекает внимание, как хорошая вывеска. Подзаголовок удерживает его, давая суть за 3 секунды. Кнопка ведёт к целевому действию без лишних раздумий. Ничего лишнего — всё работает на результат.</p>
+          <h3>Главный экран как обещание</h3>
+          <p>Первое, что видит клиент. Мы делаем так, чтобы с первого взгляда было понятно: "Это то, что я искал". Первый экран - это не картинка, а обещание, которое вы даете своему клиенту.</p>
         </div>
         <div class="solution-card">
           <div class="solution-num">02</div>
-          <h3>Психология цвета, которая работает на вас</h3>
-          <p>Цвет — ваш безмолвный продавец. Глубокие, статусные тона вызывают ощущение надёжности. Цветовые акценты сигнализируют: «здесь ценят качество». Клиент просто чувствует: «Этим людям можно доверять».</p>
+          <h3>Тексты, которые говорят на языке клиента</h3>
+          <p>Никаких штампов. Только живые формулировки, которые попадают в желания и потребности. Клиент читает и узнает себя - и это самое сильное, что может быть в тексте. Для этого мы изучаем отзывы и слои принятия решения.</p>
         </div>
         <div class="solution-card">
           <div class="solution-num">03</div>
-          <h3>Текст, который говорит на языке клиента</h3>
-          <p>Вместо «Мы печём вкусный хлеб» — «Тёплый круассан у вас на столе каждое утро к 7:30». Вместо «У нас современное оборудование» — «Точность диагностики до 0.1 мм, подтверждённая сертификатами». Клиент видит себя, свою проблему и её решение.</p>
+          <h3>Ощущения, которые нельзя подделать</h3>
+          <p>Передаем ощущения, которые возникают у клиента при контакте с вашим бизнесом. Для глэмпинга - тишину и перегрузку. Для производства - надежность и мощь. Эта работа с ощущениями помогает выбрать вас.</p>
         </div>
         <div class="solution-card">
           <div class="solution-num">04</div>
-          <h3>Мобильная версия: не удобство, а прибыль</h3>
-          <p>60% ваших клиентов смотрят сайты с телефона. Если он неудобен — закроют за 3 секунды и уйдут к конкурентам. Мы делаем адаптацию, которая сохраняет логику, эстетику и скорость на любом экране.</p>
+          <h3>Аргументы, которые ведут клиента</h3>
+          <p>Каждый блок сайта - это шаг в логике. Все стоит на своем месте и работает на то, чтобы клиент сказал "да".</p>
         </div>
         <div class="solution-card">
           <div class="solution-num">05</div>
           <h3>Сайт, который отвечает на вопросы раньше вас</h3>
-          <p>Мы внедряем FAQ, кейсы и гарантии в логических точках — там, где у клиента возникает сомнение, тут же появляется доказательство. Сайт работает как вежливый, но настойчивый продавец, который никогда не устаёт.</p>
+          <p>Мы предусматриваем все, чтобы у клиента не осталось сомнений. Сайт работает как вежливый, но профессиональный продавец.</p>
         </div>
         <div class="solution-card">
           <div class="solution-num">06</div>
-          <h3>Атмосфера, которую нельзя подделать</h3>
-          <p>Для стоматологии — ощущение стерильной чистоты и спокойствия. Для отеля — уютной роскоши. Для завода — индустриальной мощи и точности. Это невидимая работа, которая заставляет клиента выбрать именно вас.</p>
-        </div>
-        <div class="solution-card">
-          <div class="solution-num">07</div>
-          <h3>Скорость загрузки — ваш невидимый актив</h3>
-          <p>Сайт, который грузится дольше 3 секунд, теряет до 50% посетителей. Мы оптимизируем каждую страницу, чтобы она открывалась мгновенно — и как удобство для клиента, и как сигнал для поисковых систем.</p>
-        </div>
-        <div class="solution-card">
-          <div class="solution-num">08</div>
-          <h3>Первый экран, который продаёт без слов</h3>
-          <p>У вас есть ровно 3 секунды, чтобы захватить внимание. Мощный визуал, чёткий заголовок и один ясный призыв к действию. Без прокрутки, без лишних слов — только суть. Ваше цифровое рукопожатие.</p>
-        </div>
-        <div class="solution-card">
-          <div class="solution-num">09</div>
-          <h3>Доверие, которое строится на деталях</h3>
-          <p>Отзывы, кейсы и цифры размещаются не хаотично, а в управляемой логике: сомнение → факт → доверие → заявка. Каждый элемент доверия стоит ровно там, где клиент начинает колебаться.</p>
-        </div>
-        <div class="solution-card">
-          <div class="solution-num">10</div>
-          <h3>Ваш бизнес уникален. Сайт тоже должен быть таким</h3>
-          <p>Мы не используем шаблоны — это усреднённое решение. С помощью современных технологий, анализа и опыта создаем сайт, который подчёркивает именно ваши сильные стороны. Как пошив костюма на заказ.</p>
+          <h3>Штучная ручная работа</h3>
+          <p>Мы не используем усредненные решения. С помощью глубокого погружения, анализа, опыта и современных технологий - мы создаем сайт, который раскрывает ваши сильные стороны. Как пошив костюма на заказ - никаких "как у всех".</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOR WHOM -->
-  <section class="forwhom-section">
-    <div class="container">
-      <div class="section-label">Для кого</div>
-      <h2>Мы работаем<br>с <em>твёрдым бизнесом</em></h2>
-      <p class="section-desc">Производство, услуги, медицина, строительство — за которыми стоят живые люди и реальный труд. Не инфобизнес, не блогеры.</p>
-      <div class="industries-grid">
-        <div class="industry-tag">Стоматологии</div>
-        <div class="industry-tag">Юридические компании</div>
-        <div class="industry-tag">Заводы</div>
-        <div class="industry-tag">Металлообработка</div>
-        <div class="industry-tag">Кровля и стройматериалы</div>
-        <div class="industry-tag">Производство мебели</div>
-        <div class="industry-tag">Производство упаковки</div>
-        <div class="industry-tag">Медицинские центры</div>
-        <div class="industry-tag">Отели и глэмпинги</div>
-        <div class="industry-tag">Рестораны</div>
-        <div class="industry-tag">Логистика</div>
-        <div class="industry-tag">Клининг</div>
-        <div class="industry-tag">Охранные предприятия</div>
-        <div class="industry-tag">+ Другой бизнес</div>
+  <!-- CHAIN SECTION -->
+  <section class="chain-section">
+    <div class="chain-container">
+      <div class="chain-title">Мы ведём по <em>цепочке</em></div>
+      <div class="chain-wrapper">
+        <div class="chain-item">
+          <div class="step-label">Мысли</div>
+          <div class="step-desc">Направляем мысли клиента в сторону того, что выбор вас - это то, что ему нужно</div>
+        </div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-item">
+          <div class="step-label">Ощущения</div>
+          <div class="step-desc">Создаём состояние уверенности, вдохновлённости, спокойствия - в зависимости от вашего бизнеса. Это эмоциональное подкрепление, где начинает формироваться желание</div>
+        </div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-item">
+          <div class="step-label">Аргументы</div>
+          <div class="step-desc">Логические обоснования. Это закрывает все возможные возражения и вопросы, которые мы заранее продумываем и изучаем</div>
+        </div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-item">
+          <div class="step-label">Продажа</div>
+          <div class="step-desc">Самый естественный блок - никаких жёстких манипуляций, мягко направляем и помогаем завершить целевое действие</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- INCLUDES -->
-  <section class="includes-section" id="includes">
+  <!-- COMPARISON SECTION -->
+  <section class="comparison-section">
     <div class="container">
-      <div class="section-label">Состав услуги</div>
-      <h2>Что входит в сайт,<br><em>созданный со смыслом</em></h2>
-      <div class="includes-list">
-        <div class="include-item">
-          <div class="include-check">
-            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0a0a0f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <h3>Поиск сути и манифест</h3>
-            <p>Находим главный смысл вашего бизнеса, который отличает вас от конкурентов. Формулируем манифест — документ, от которого говорят сайт, менеджеры и посты.</p>
-          </div>
+      <div class="section-label">Разница есть</div>
+      <h2>Сайт без метода МСС <em>vs</em> Сайт по методу МСС</h2>
+
+      <!-- Header -->
+      <div class="comparison-header">
+        <div class="header-left">Сайт без метода МСС</div>
+        <div class="header-right">Сайт по методу МСС</div>
+      </div>
+
+      <!-- Row 1: Отель -->
+      <div class="comparison-row">
+        <div class="row-left">
+          <div class="label">Для отеля:</div>
+          <div class="text">У нас доступная мобильная связь и интернет</div>
         </div>
-        <div class="include-item">
-          <div class="include-check">
-            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0a0a0f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <h3>Тексты, которые говорят с клиентом на одном языке</h3>
-            <p>Каждое предложение работает на доверие: подчёркивает преимущества и отвечает на вопросы клиентов.</p>
-          </div>
+        <div class="row-right">
+          <div class="text">Мы знаем, как важно иногда уехать от суеты и переключиться. Но также понимаем, насколько важно оставаться на связи с близкими. Поэтому на территории стабильная мобильная связь и хороший интернет.</div>
         </div>
-        <div class="include-item">
-          <div class="include-check">
-            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0a0a0f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <h3>Дизайн в атмосфере вашего бренда</h3>
-            <p>Цвет, типографика, визуал подбираются под нишу и целевую аудиторию. Без шаблонов.</p>
-          </div>
+      </div>
+
+      <!-- Row 2: Производство -->
+      <div class="comparison-row">
+        <div class="row-left">
+          <div class="label">Для производства:</div>
+          <div class="text">У нас современное оборудование</div>
         </div>
-        <div class="include-item">
-          <div class="include-check">
-            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0a0a0f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <h3>Адаптация под все устройства</h3>
-            <p>Сайт корректно работает на смартфонах, планшетах и ПК.</p>
-          </div>
+        <div class="row-right">
+          <div class="text">Точность диагностики до 0.1 мм. Это подтверждается сертификатами от специализированных центров, которые мы предоставляем нашим клиентам.</div>
         </div>
-        <div class="include-item">
-          <div class="include-check">
-            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0a0a0f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <h3>Базовая SEO-оптимизация</h3>
-            <p>Title, description, структура заголовков, быстрая загрузка — сайт готов к продвижению с первого дня.</p>
-          </div>
+      </div>
+
+      <!-- Row 3: Ресторан -->
+      <div class="comparison-row">
+        <div class="row-left">
+          <div class="label">Для ресторана:</div>
+          <div class="text">Мы печём вкусные круассаны</div>
         </div>
-        <div class="include-item">
-          <div class="include-check">
-            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0a0a0f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <h3>Форма обратной связи с уведомлениями</h3>
-            <p>Заявки прямо на сайте — с уведомлениями в Telegram или на email.</p>
-          </div>
+        <div class="row-right">
+          <div class="text">Горячий хрустящий круассан, со сливочным миндальным кремом из натурального марципана, ждет вас каждое утро с 7:30.</div>
         </div>
-        <div class="include-item">
-          <div class="include-check">
-            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#0a0a0f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <h3>Правки до утверждения</h3>
-            <p>Вносим корректировки до сдачи, чтобы финальный результат вас полностью устраивал.</p>
-          </div>
-        </div>
+      </div>
+
+      <!-- QUOTE after comparison -->
+      <div style="margin-top:3rem; text-align:center; border-top:1px solid var(--border); padding-top:3rem;">
+        <p class="top-quote">
+          Пока клиент не видит разницы -<br>он сравнивает цены.<br><em>Смыслы убирают сравнение.</em><br>Даже если вокруг демпингуют.
+        </p>
       </div>
     </div>
   </section>
@@ -1324,7 +1711,7 @@
   <section class="process-section">
     <div class="container">
       <div class="section-label">Как мы работаем</div>
-      <h2>Как мы работаем.<br><em>Прозрачно. По этапам:</em></h2>
+      <h2>Как мы работаем.<br><em>Кратко. По этапам:</em></h2>
       <div class="process-steps">
         <div class="process-step">
           <div class="step-num">1</div>
@@ -1334,7 +1721,7 @@
         <div class="process-step">
           <div class="step-num">2</div>
           <div class="step-title">Анализ и исследование</div>
-          <p class="step-desc">Мы изучаем рынок и целевую аудиторию.</p>
+          <p class="step-desc">Анализ и исследование вашей аудитории, как они принимают решения, что хотят на самом деле и как мы можем показать, что ваш бизнес им это дает</p>
         </div>
         <div class="process-step">
           <div class="step-num">3</div>
@@ -1357,6 +1744,11 @@
           <p class="step-desc">Передаём готовый работающий сайт.</p>
         </div>
       </div>
+      <div class="process-text-block">
+        <p>Вы получаете включённую работу всех специалистов: смысловика-стратега, маркетолога, дизайнера, продажника и современных технологий, и все это под личным управлением основателя студии.</p>
+        <p class="highlight">Ключевой продукт, который вы получаете в итоге, не сайт - а инструмент, который будет работать на ваш бизнес годами.</p>
+        <p>На всех слоях принятия решения у клиентов: через эмоции, впечатление, состояние, аргументы. С учетом сильного маркетинга и продающей системы.</p>
+      </div>
     </div>
   </section>
 
@@ -1366,19 +1758,56 @@
       <div class="section-label">Стоимость</div>
       <h2>Прозрачная<br><em>цена</em></h2>
       <div class="price-box">
-        <div class="price-tag">65 000 ₽</div>
+        <div class="price-tag">120 000 ₽</div>
         <p class="price-note">Фиксированная цена. Без скрытых платежей.</p>
         <div class="urgency-badge">Принимаем ограниченное число проектов</div>
-        <div class="price-includes">
-          <div class="price-include">Поиск сути и манифест</div>
-          <div class="price-include">Маркетинговые тексты</div>
-          <div class="price-include">Дизайн в атмосфере бренда</div>
-          <div class="price-include">Адаптация под все устройства</div>
-          <div class="price-include">Базовая SEO-оптимизация</div>
-          <div class="price-include">Форма обратной связи</div>
-          <div class="price-include">Правки до утверждения</div>
+
+        <div class="price-desc">
+          <strong style="color:var(--accent);">Стратегия и смыслы</strong> - глубокое погружение в психологию целевой аудитории, формирование воронки восприятия вашего бизнеса<br><br>
+          <strong style="color:var(--accent);">Тексты</strong> - авторские тексты, которые передают состояние и ценность.<br><br>
+          <strong style="color:var(--accent);">Дизайн</strong> - визуальное решение, которое усиливает смыслы и работает на восприятие.<br><br>
+          <strong style="color:var(--accent);">Техническая реализация</strong> - настройка сайта, интеграция с необходимыми сервисами, адаптивная вёрстка, которая корректно отображается на всех устройствах и др.<br><br>
+          <strong style="color:var(--accent);">Личное сопровождение основателя студии</strong> - ведет проект от начала до конца, отвечает за качество и результат.
         </div>
+
         <a href="#contact" class="btn-primary" style="display:inline-flex;">Обсудить мой проект →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE SECTION -->
+  <section class="case-section">
+    <div class="container">
+      <div class="section-label">Кейс</div>
+      <h2><em>Отель «Лесная тишь»</em></h2>
+      <p class="section-desc">Как мы создали сайт, который передает состояние и вызывает желание там оказаться</p>
+
+      <div class="case-wrapper">
+        <div class="case-image">
+          <img src="https://i.ibb.co/KpskJFPb/IMG-8605.jpg" alt="Отель Лесная тишь - главный экран сайта">
+        </div>
+        <div class="case-content">
+          <div class="case-label">Краткое описание</div>
+          <div class="case-desc">
+            Отель в лесу, где гости ищут не просто ночлег, а тишину и уединение. Задача: показать через сайт атмосферу этого места, выделить среди конкурентов, чтобы у гостей не осталось сомнений, почему выбрать именно этот отель.
+          </div>
+
+          <div class="case-label" style="margin-top:1rem;">Что мы сделали</div>
+          <ul class="case-list">
+            <li>Погрузились в бизнес клиента, изучили отзывы, как принимали решения, сценарии покупки</li>
+            <li>Нашли главные смыслы и как их представить так, чтобы гости захотели туда еще до того, как увидели цены</li>
+            <li>Выстроили структуру, которая ведет от ощущения к желанию забронировать</li>
+            <li>Упаковали это в дизайн, который работает на состояние</li>
+          </ul>
+
+          <div class="case-link-wrapper">
+            <span class="label-text">Смотреть →</span>
+            <a href="https://mccbrand.online" target="_blank" class="case-link">ссылка на сайт</a>
+          </div>
+
+          <div class="case-readmore-text">Подробнее → Отправим файл по запросу</div>
+          <div class="case-readmore-note">как мы применили наш метод для отеля, наше мышление и подробные шаги</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1392,31 +1821,28 @@
       <div class="quote-text">
         <p class="section-label" style="margin-bottom:0.8rem;">Основатель</p>
         <h2 style="font-size:1.5rem; margin-bottom:1rem;">Основатель, который лично находит <em>смысл вашего бизнеса</em></h2>
-        <blockquote>
-          Меня зовут Юлия. 6 лет в маркетинге и рекламе. Моя специализация — смыслы.<br><br>
-          Всё началось с одной идеи: бизнесу не нужен ещё один сайт. Ему нужны аргументы, через которые клиент скажет: «Мне только к ним». Я создала метод, который работает через смыслы, ценности и манифест бизнеса.<br><br>
-        </blockquote>
+        <div class="quote-manifest">
+          <p>Всё началось с одной идеи: бизнесу не нужен ещё один сайт. Ему нужны аргументы, через которые клиент скажет: «Мне только к ним». Я создала метод, который работает через смыслы, ценности и манифест бизнеса.</p>
+          <p>Я лично веду проекты и работаю напрямую с собственником. Именно при работе один на один с основателем бизнеса находятся самые сильные смыслы. Это принципы нашей студии и гарантия качества.</p>
+          <p>Вы вложили в свой бизнес силы, время и душу. Мы поможем показать его на том уровне, которого он достоин.</p>
+        </div>
         <p class="quote-author">Юлия</p>
-        <p class="quote-role">Основатель МСС</p>
+        <p class="quote-role">Основатель МСС, больше 10 лет в маркетинге, сайтах и смыслах</p>
         <div class="contact-lines" style="margin-top:1.5rem;">
           <div class="contact-line">
-            <span>Telegram, MAX:</span>
-            <strong><a href="https://max.ru/+79235703335">+7 923 570-33-35</a></strong>
-          </div>
-          <div class="contact-line">
-            <span>Телефон:</span>
-            <strong><a href="tel:+79235703335">+7 923 570-33-35</a></strong>
+            <span>Telegram, WhatsApp, MAX:</span>
+            <strong style="margin-left:0.3rem;"><a href="tel:+79235703335">+7 923 570-33-35</a></strong>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- FAQ -->
   <section class="faq-section" id="faq">
     <div class="container">
       <div class="section-label">Вопросы и ответы</div>
-      <h2>У вас есть вопросы —<br><em>у нас есть ответы</em></h2>
+      <h2>У вас есть вопросы -<br><em>у нас есть ответы</em></h2>
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">
@@ -1424,7 +1850,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-a">
-            <div class="faq-a-inner">Стандартный срок — 5–7 рабочих дней. Сроки зависят от объёма и сложности. Срочные проекты обсуждаем индивидуально.</div>
+            <div class="faq-a-inner">Стандартный срок - 21-28 рабочих дней. Сроки также зависят от скорости утверждения и объема работы. Срочные проекты обсуждаем индивидуально.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -1438,11 +1864,20 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">
-            Почему 65 000, а не 150 000?
+            Почему 120 000, а не 350 000?
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-a">
-            <div class="faq-a-inner">Нейросети берут на себя рутину. Я управляю ими как командой. У меня нет офиса и штата. Вы платите за метод и результат.</div>
+            <div class="faq-a-inner">Вы платите только за инструмент, который получите, а не за содержание команды и офиса. Современные технологии - нейросети, позволяют нам не нанимать подрядчиков в штат, а грамотное управление ими позволяет сократить сроки на техническую реализацию. Вы платите за метод и результат.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Вы работаете по договору?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Обязательно, работаем официально, по договору.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -1460,7 +1895,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-a">
-            <div class="faq-a-inner">Мы делаем базовую SEO-оптимизацию: правильные теги title и description, структуру заголовков, быструю загрузку, адаптацию под мобильные. Это фундамент для органического продвижения. Полноценное SEO-продвижение — мы на этом не специализируемся.</div>
+            <div class="faq-a-inner">Мы делаем базовую SEO-оптимизацию: правильные теги title и description, структуру заголовков, быструю загрузку, адаптацию под мобильные. Это фундамент для органического продвижения. Полноценное SEO-продвижение - мы на этом не специализируемся.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -1469,7 +1904,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-a">
-            <div class="faq-a-inner">Домен (.ru) — около 150–200 рублей в год. Хостинг — от 250 рублей в месяц. Я помогаю выбрать, настроить и запустить — вам не придётся разбираться в этом самому.</div>
+            <div class="faq-a-inner">Домен (.ru) - от 199 рублей в год. Хостинг - от 495 рублей в месяц. Помогаем выбрать, настроить и запустить - вам не придётся разбираться в этом самостоятельно.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -1517,7 +1952,7 @@
 
   <!-- CTA AFTER MANIFEST -->
   <section class="cta-after-manifest">
-    <a href="#contact" class="btn-primary" style="font-size:1.1rem; padding:1rem 2.5rem;">Стать единственным выбором →</a>
+    <a href="#contact" class="btn-primary">Стать единственным выбором →</a>
   </section>
 
   <!-- CONTACT FORM -->
@@ -1527,17 +1962,15 @@
         <div class="form-left">
           <div class="section-label">Контакты</div>
           <h2>Обсудим<br>ваш <em>проект</em></h2>
-          <p>Оставьте заявку — расскажите о бизнесе и задаче. Отвечает лично основатель МСС.</p>
+          <p>Оставьте заявку - расскажите о бизнесе и задаче. Отвечает лично основатель МСС.</p>
           <div class="contact-lines">
             <div class="contact-line">
-              <span>Telegram, MAX:</span>
-              <strong><a href="https://max.ru/+79235703335">+7 923 570-33-35</a></strong>
+              <span>Telegram, WhatsApp, MAX:</span>
             </div>
-            <div class="contact-line">
-              <span>Телефон:</span>
-              <strong><a href="tel:+79235703335">+7 923 570-33-35</a></strong>
+            <div class="contact-phone">
+              <a href="tel:+79235703335">+7 923 570-33-35</a>
             </div>
-            <div class="contact-line" style="margin-top:1rem; font-size:0.8rem;">
+            <div class="contact-line" style="margin-top:0.8rem; font-size:0.8rem;">
               Работаем по всей России. Всё онлайн.
             </div>
           </div>
@@ -1589,8 +2022,9 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-brand">МСС·студия</div>
-    <p>Маркетинговые сайты со смыслом | Telegram, MAX: <a href="https://max.ru/+79235703335" style="color:var(--accent); text-decoration:none;">+7 923 570-33-35</a> | <a href="tel:+79235703335" style="color:var(--accent); text-decoration:none;">+7 923 570-33-35</a></p>
+    <p>Маркетинговые сайты со смыслом | Telegram, WhatsApp, MAX: <a href="tel:+79235703335" style="color:var(--accent); text-decoration:none;">+7 923 570-33-35</a></p>
     <p style="margin-top:0.5rem;">© 2026 МСС. Все права защищены.</p>
+    <a href="#" class="footer-top">↑ Наверх</a>
   </footer>
 
   <script>
@@ -1630,3 +2064,4 @@
   </script>
 </body>
 </html>
+```
