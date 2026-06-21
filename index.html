@@ -43,6 +43,59 @@
     font-size: 16px;
     line-height: 1.7;
     overflow-x: hidden;
+    opacity: 0;
+    animation: fadeInBody 0.6s ease forwards;
+  }
+
+  @keyframes fadeInBody {
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Плавающая стрелка вверх */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.3s ease, background 0.3s ease;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  .back-to-top:hover {
+    background: rgba(200, 169, 110, 0.15);
+    transform: translateY(-3px);
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
   }
 
   nav {
@@ -82,12 +135,13 @@
     padding: 0.5rem 1.2rem;
     border-radius: 4px;
     text-decoration: none;
-    transition: background 0.2s;
+    transition: background 0.3s ease, transform 0.2s ease;
     white-space: nowrap;
   }
 
   nav a.cta-nav:hover {
     background: var(--accent2);
+    transform: translateY(-1px);
   }
 
   .hero {
@@ -103,8 +157,7 @@
   }
 
   .hero-eyebrow {
-    font-family: 'Golos Text', sans-serif;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     letter-spacing: 0.2em;
     color: var(--accent);
     text-transform: uppercase;
@@ -112,6 +165,8 @@
     display: flex;
     align-items: center;
     gap: 0.7rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.2s forwards;
   }
 
   .hero-eyebrow::before {
@@ -122,13 +177,21 @@
     background: var(--accent);
   }
 
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   h1 {
-    font-family: 'Golos Text', sans-serif;
     font-weight: 600;
-    font-size: clamp(2.2rem, 5.5vw, 4.4rem);
-    line-height: 1.08;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.1;
     letter-spacing: -0.02em;
     margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.4s forwards;
   }
 
   h1 em {
@@ -137,11 +200,13 @@
   }
 
   .hero-sub {
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: 1.05rem;
     color: var(--muted);
     max-width: 580px;
-    margin-bottom: 5rem;
-    line-height: 1.65;
+    margin-bottom: 4rem;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.6s forwards;
   }
 
   .hero-cta-row {
@@ -149,6 +214,8 @@
     flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.8s forwards;
   }
 
   .btn-primary {
@@ -157,26 +224,48 @@
     gap: 0.5rem;
     background: var(--accent);
     color: #0a0a0f;
-    font-family: 'Golos Text', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     padding: 0.9rem 2rem;
     border-radius: 5px;
     text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     border: none;
     cursor: pointer;
   }
 
   .btn-primary:hover {
     background: var(--accent2);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(200, 169, 110, 0.25);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.9rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 1.5px solid var(--accent);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn-outline:hover {
+    background: rgba(200, 169, 110, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(200, 169, 110, 0.1);
   }
 
   section {
     position: relative;
     z-index: 1;
-    padding: 5rem 2rem;
+    padding: 4rem 2rem;
   }
 
   .container {
@@ -185,12 +274,11 @@
   }
 
   .section-label {
-    font-family: 'Golos Text', sans-serif;
-    font-size: 0.68rem;
+    font-size: 0.7rem;
     letter-spacing: 0.2em;
     color: var(--accent);
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     display: flex;
     align-items: center;
     gap: 0.7rem;
@@ -205,9 +293,8 @@
   }
 
   h2 {
-    font-family: 'Golos Text', sans-serif;
     font-weight: 600;
-    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    font-size: clamp(1.8rem, 3.2vw, 2.4rem);
     line-height: 1.2;
     letter-spacing: -0.02em;
     margin-bottom: 1rem;
@@ -221,8 +308,8 @@
   .section-desc {
     color: var(--muted);
     max-width: 600px;
-    margin-bottom: 3rem;
-    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
   }
 
   /* INTRO BLOCK */
@@ -230,19 +317,18 @@
     background: var(--bg3);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    padding: 3.5rem 2rem;
+    padding: 3rem 2rem;
     text-align: center;
     position: relative;
     z-index: 1;
   }
 
   .intro-text {
-    font-family: 'Golos Text', sans-serif;
-    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    font-size: 1rem;
     font-weight: 400;
     max-width: 750px;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--text);
     text-align: center;
   }
@@ -251,193 +337,90 @@
     color: var(--accent);
   }
 
-  .intro-text strong {
-    font-weight: 600;
-    color: var(--accent);
-  }
-
-  /* TOP QUOTE */
-  .top-quote-section {
-    background: var(--bg3);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 3.5rem 2rem;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .top-quote {
-    font-family: 'Golos Text', sans-serif;
-    font-size: clamp(0.95rem, 2.2vw, 1.3rem);
-    font-weight: 400;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.5;
-    color: var(--text);
-  }
-
-  .top-quote em {
-    font-style: normal;
-    color: var(--accent);
-  }
-
-  .why-section {
+  /* WHAT CHANGES BLOCK */
+  .changes-section {
     background: var(--bg);
-    padding: 6rem 2rem;
-    position: relative;
-    z-index: 1;
+    padding: 4rem 2rem;
     border-bottom: 1px solid var(--border);
   }
 
-  .why-intro {
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 500px;
-    margin-bottom: 2.5rem;
-    font-family: 'Golos Text', sans-serif;
-    font-weight: 400;
-  }
-
-  .why-intro strong {
-    color: var(--accent);
-    font-weight: 600;
-  }
-
-  .what-happens {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-left: 1px solid var(--accent);
-    border-radius: 0 10px 10px 0;
-    padding: 2.5rem;
-    margin-bottom: 3rem;
-  }
-
-  .what-happens h3 {
-    font-family: 'Golos Text', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 1.5rem;
-  }
-
-  .what-happens ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .what-happens ul li {
-    font-size: 0.95rem;
-    color: var(--text);
-    line-height: 1.6;
-    padding-left: 1.5rem;
-    position: relative;
-  }
-
-  .what-happens ul li::before {
-    content: '-';
-    position: absolute;
-    left: 0;
-    color: var(--muted);
-    opacity: 0.5;
-  }
-
-  .what-happens .problem-text {
-    font-size: 0.82rem;
-    color: var(--muted);
-    font-style: normal;
-    margin-top: 1rem;
-  }
-
-  .what-changes {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-left: 1px solid var(--accent);
-    border-radius: 0 10px 10px 0;
-    padding: 2.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .what-changes h3 {
-    font-family: 'Golos Text', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 1.5rem;
-  }
-
-  .what-changes ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .what-changes ul li {
-    font-size: 0.95rem;
-    color: var(--text);
-    line-height: 1.6;
-    padding-left: 1.5rem;
-    position: relative;
-  }
-
-  .what-changes ul li::before {
-    content: '-';
-    position: absolute;
-    left: 0;
-    color: var(--muted);
-    opacity: 0.5;
-  }
-
-  .sense-definition {
-    font-size: 0.95rem;
-    color: var(--muted);
-    line-height: 1.8;
-    max-width: 680px;
+  .changes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
     margin-top: 2rem;
-    font-style: italic;
-    border-left: 1px solid var(--accent);
-    padding-left: 1.5rem;
-    font-family: 'Golos Text', sans-serif;
+    align-items: start;
   }
 
-  .sense-definition strong {
-    color: var(--accent);
-    font-style: normal;
-  }
-
-  .method-link-block {
-    margin-top: 3rem;
-    text-align: center;
-  }
-
-  .method-link-block p {
-    color: var(--accent);
+  .changes-left h3 {
+    font-size: 1.4rem;
     font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    font-family: 'Golos Text', sans-serif;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
   }
 
-  /* Eagle Eye */
+  .changes-left p {
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .changes-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .change-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    background: var(--bg2);
+    border-radius: 8px;
+    border-left: 2px solid var(--accent);
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .change-item:hover {
+    transform: translateX(6px);
+    background: var(--bg3);
+    box-shadow: 0 4px 15px rgba(200, 169, 110, 0.06);
+  }
+
+  .change-item .icon {
+    color: var(--accent);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .change-item .text {
+    font-size: 0.92rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 680px) {
+    .changes-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  /* EAGLE EYE */
   .eagle-section {
     background: var(--bg);
-    padding: 3rem 2rem 5rem;
+    padding: 2.5rem 2rem 4rem;
     text-align: center;
     border-bottom: 1px solid var(--border);
+    scroll-margin-top: 80px;
   }
 
   .eagle-block {
     max-width: 700px;
     margin: 0 auto;
-    font-family: 'Golos Text', sans-serif;
     color: var(--text);
     line-height: 1.8;
     font-size: 0.95rem;
@@ -451,7 +434,7 @@
   /* CHAIN SECTION */
   .chain-section {
     background: var(--bg2);
-    padding: 5rem 2rem;
+    padding: 4rem 2rem;
     border-bottom: 1px solid var(--border);
   }
 
@@ -462,8 +445,7 @@
 
   .chain-title {
     text-align: center;
-    font-family: 'Golos Text', sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 0.3rem;
@@ -476,11 +458,10 @@
 
   .chain-subtitle {
     text-align: center;
-    font-family: 'Golos Text', sans-serif;
     font-size: 0.95rem;
     font-weight: 400;
     color: var(--muted);
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 
   .chain-wrapper {
@@ -501,24 +482,24 @@
     padding: 1.8rem 1.2rem;
     text-align: center;
     position: relative;
-    transition: border-color 0.3s, transform 0.2s;
+    transition: border-color 0.3s ease, transform 0.4s ease, box-shadow 0.4s ease;
   }
 
   .chain-item:hover {
     border-color: var(--accent);
-    transform: translateY(-3px);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(200, 169, 110, 0.08);
   }
 
   .chain-item .step-label {
-    font-family: 'Golos Text', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: var(--accent);
     margin-bottom: 0.6rem;
   }
 
   .chain-item .step-desc {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     color: var(--muted);
     line-height: 1.6;
   }
@@ -527,7 +508,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--accent);
     opacity: 0.5;
     flex-shrink: 0;
@@ -548,10 +529,31 @@
     }
   }
 
+  /* FOR WHOM */
+  .forwhom-section {
+    background: var(--bg2);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .forwhom-text {
+    font-size: 1.05rem;
+    color: var(--text);
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .forwhom-text em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
   /* COMPARISON SECTION */
   .comparison-section {
     background: var(--bg);
-    padding: 5rem 2rem;
+    padding: 4rem 2rem;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
@@ -560,7 +562,7 @@
     display: grid;
     grid-template-columns: 30% 70%;
     gap: 0;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     margin-bottom: 0;
     border-radius: 10px 10px 0 0;
     overflow: hidden;
@@ -570,7 +572,7 @@
     background: var(--bg2);
     border: 1px solid var(--border);
     border-right: none;
-    padding: 1.2rem 1.5rem;
+    padding: 1rem 1.5rem;
     text-align: center;
     font-weight: 600;
     font-size: 0.9rem;
@@ -584,7 +586,7 @@
   .comparison-header .header-right {
     background: rgba(200, 169, 110, 0.08);
     border: 1px solid var(--accent);
-    padding: 1.2rem 1.5rem;
+    padding: 1rem 1.5rem;
     text-align: center;
     font-weight: 600;
     font-size: 0.9rem;
@@ -600,6 +602,11 @@
     grid-template-columns: 30% 70%;
     gap: 0;
     border-bottom: 1px solid var(--border);
+    transition: background 0.3s ease;
+  }
+
+  .comparison-row:hover {
+    background: rgba(200, 169, 110, 0.03);
   }
 
   .comparison-row:last-child {
@@ -612,7 +619,7 @@
     background: var(--bg2);
     border-left: 1px solid var(--border);
     border-right: none;
-    padding: 1.2rem 1.5rem;
+    padding: 1rem 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -628,7 +635,7 @@
   }
 
   .comparison-row .row-left .text {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     color: var(--text);
     line-height: 1.5;
     font-weight: 400;
@@ -638,20 +645,19 @@
     background: rgba(200, 169, 110, 0.08);
     border: 1px solid var(--accent);
     border-left: 1px solid var(--accent);
-    padding: 1.2rem 1.5rem;
+    padding: 1rem 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
   .comparison-row .row-right .text {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     color: var(--white);
     line-height: 1.6;
     font-weight: 400;
   }
 
-  /* Мобильная версия - плитка */
   @media (max-width: 680px) {
     .comparison-header {
       display: none;
@@ -668,7 +674,7 @@
     .comparison-row .row-left {
       border: none;
       border-bottom: 1px solid var(--border);
-      padding: 1.2rem 1.2rem;
+      padding: 1rem;
       background: var(--bg2);
     }
 
@@ -682,7 +688,7 @@
     }
 
     .comparison-row .row-left .text {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--text);
       line-height: 1.5;
       font-weight: 400;
@@ -690,30 +696,51 @@
 
     .comparison-row .row-right {
       border: none;
-      padding: 1.2rem 1.2rem;
+      padding: 1rem;
       background: rgba(200, 169, 110, 0.08);
     }
 
     .comparison-row .row-right .text {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--white);
       line-height: 1.6;
       font-weight: 400;
     }
   }
 
+  .top-quote {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+    color: var(--text);
+  }
+
+  .top-quote em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
   .price-section {
     background: var(--bg2);
+    padding: 4rem 2rem;
   }
 
   .price-box {
     background: var(--bg3);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 3rem;
+    padding: 2.5rem;
     max-width: 620px;
     position: relative;
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .price-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
   }
 
   .price-box::before {
@@ -727,8 +754,7 @@
   }
 
   .price-tag {
-    font-family: 'Golos Text', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 600;
     color: var(--accent);
     line-height: 1;
@@ -736,12 +762,11 @@
   }
 
   .price-note {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--muted);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     font-style: italic;
     font-weight: 300;
-    letter-spacing: 0.02em;
   }
 
   .price-desc {
@@ -765,10 +790,14 @@
     margin-bottom: 1.5rem;
   }
 
+  .price-btn-wrapper {
+    margin-top: 1.5rem;
+  }
+
   /* CASE SECTION */
   .case-section {
     background: var(--bg);
-    padding: 5rem 2rem;
+    padding: 4rem 2rem;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
@@ -778,45 +807,37 @@
     grid-template-columns: 1fr 1.5fr;
     gap: 3rem;
     align-items: start;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
   }
 
   .case-image {
     position: relative;
     background: var(--bg2);
-    border: 1px solid var(--border);
+    border: none;
     border-radius: 10px;
     overflow: hidden;
     aspect-ratio: 3 / 4;
-    max-height: 520px;
+    max-height: 480px;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .case-image:hover {
+    transform: scale(1.01);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
   }
 
   .case-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-  }
-
-  .case-content h3 {
-    font-family: 'Golos Text', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-  }
-
-  .case-content h3 em {
-    font-style: normal;
-    color: var(--accent);
+    object-fit: cover;
   }
 
   .case-content .case-label {
     color: var(--accent);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -825,9 +846,9 @@
 
   .case-content .case-desc {
     color: var(--text);
-    font-size: 0.82rem;
+    font-size: 0.9rem;
     line-height: 1.7;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
     font-weight: 400;
   }
 
@@ -837,13 +858,18 @@
   }
 
   .case-content .case-list li {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     color: var(--text);
     line-height: 1.6;
     padding-left: 1.5rem;
     position: relative;
     margin-bottom: 0.5rem;
     font-weight: 400;
+    transition: transform 0.3s ease;
+  }
+
+  .case-content .case-list li:hover {
+    transform: translateX(4px);
   }
 
   .case-content .case-list li::before {
@@ -874,10 +900,12 @@
     font-size: 0.95rem;
     font-weight: 400;
     font-style: italic;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
   }
 
   .case-content .case-link-wrapper .case-link:hover {
     text-decoration: underline;
+    color: var(--accent2);
   }
 
   .case-content .case-readmore-text {
@@ -900,34 +928,36 @@
     }
     .case-image {
       aspect-ratio: 16 / 9;
-      max-height: 300px;
+      max-height: 280px;
     }
   }
 
   .manifest-section {
     background: var(--bg2);
+    padding: 4rem 2rem;
   }
 
   .manifest-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.5rem;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
   }
 
   .manifest-card {
     background: var(--bg3);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 2.2rem 2rem;
+    padding: 2rem;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.25s, transform 0.2s;
+    transition: border-color 0.3s ease, transform 0.4s ease, box-shadow 0.4s ease;
   }
 
   .manifest-card:hover {
     border-color: var(--accent);
-    transform: translateY(-3px);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(200, 169, 110, 0.08);
   }
 
   .manifest-card::before {
@@ -942,11 +972,10 @@
   }
 
   .manifest-card h3 {
-    font-family: 'Golos Text', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     color: var(--accent);
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
     letter-spacing: 0.02em;
   }
 
@@ -956,55 +985,45 @@
     line-height: 1.7;
   }
 
-  /* Boutique note */
+  /* BOUTIQUE */
   .boutique-section {
     background: var(--bg2);
-    padding: 2rem 2rem 4rem;
+    padding: 2rem 2rem 3rem;
     text-align: center;
   }
 
   .boutique-block {
     max-width: 650px;
     margin: 0 auto;
-    font-family: 'Golos Text', sans-serif;
     color: var(--text);
     line-height: 1.8;
     font-size: 0.9rem;
     font-style: italic;
   }
 
-  /* CTA after manifest */
+  /* CTA AFTER MANIFEST */
   .cta-after-manifest {
     text-align: center;
-    padding: 3rem 2rem 5rem;
+    padding: 2.5rem 2rem 4rem;
     background: var(--bg2);
-  }
-
-  .cta-after-manifest .btn-primary {
-    font-size: 1rem;
-    padding: 0.9rem 2rem;
-  }
-
-  @media (max-width: 680px) {
-    .cta-after-manifest .btn-primary {
-      font-size: 0.85rem;
-      padding: 0.7rem 1.5rem;
-    }
   }
 
   .faq-section {
     background: var(--bg);
+    padding: 4rem 2rem;
   }
 
   .faq-list {
     display: flex;
     flex-direction: column;
     gap: 0;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     max-width: 800px;
     border: 1px solid var(--border);
     border-radius: 10px;
     overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @media (max-width: 680px) {
@@ -1013,6 +1032,8 @@
       margin-left: 0;
       margin-right: 0;
       border-radius: 0;
+      border-left: none;
+      border-right: none;
     }
   }
 
@@ -1028,18 +1049,17 @@
     width: 100%;
     background: var(--bg2);
     border: none;
-    padding: 1.4rem 1.8rem;
+    padding: 1.2rem 1.5rem;
     text-align: left;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    font-family: 'Golos Text', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
     color: var(--text);
-    transition: background 0.2s;
+    transition: background 0.3s ease, color 0.3s ease;
   }
 
   .faq-q:hover {
@@ -1059,7 +1079,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.25s, border-color 0.2s;
+    transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     font-size: 0.7rem;
   }
 
@@ -1072,7 +1092,7 @@
   .faq-a {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.25s;
+    transition: max-height 0.4s ease, padding 0.3s ease;
     background: var(--bg);
   }
 
@@ -1081,7 +1101,7 @@
   }
 
   .faq-a-inner {
-    padding: 1.2rem 1.8rem 1.6rem;
+    padding: 1rem 1.5rem 1.5rem;
     font-size: 0.9rem;
     color: var(--muted);
     line-height: 1.75;
@@ -1089,6 +1109,7 @@
 
   .form-section {
     background: var(--bg2);
+    padding: 4rem 2rem;
   }
 
   .form-wrap {
@@ -1135,6 +1156,11 @@
   .contact-line a {
     color: var(--accent);
     text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .contact-line a:hover {
+    color: var(--accent2);
   }
 
   .contact-phone {
@@ -1146,6 +1172,11 @@
   .contact-phone a {
     color: var(--accent);
     text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .contact-phone a:hover {
+    color: var(--accent2);
   }
 
   form {
@@ -1156,6 +1187,12 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   }
 
   form label {
@@ -1172,11 +1209,10 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 6px;
     color: var(--text);
-    font-family: 'Golos Text', sans-serif;
     font-size: 0.95rem;
-    padding: 0.75rem 1rem;
+    padding: 0.7rem 1rem;
     outline: none;
-    transition: border-color 0.2s;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
   }
 
@@ -1184,6 +1220,7 @@
   form textarea:focus,
   form select:focus {
     border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(200, 169, 110, 0.1);
   }
 
   form textarea {
@@ -1199,20 +1236,19 @@
   form button {
     background: var(--accent);
     color: #0a0a0f;
-    font-family: 'Golos Text', sans-serif;
     font-weight: 600;
     font-size: 1rem;
-    padding: 0.95rem;
+    padding: 0.9rem;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
+    transition: background 0.3s ease, transform 0.2s ease;
     margin-top: 0.5rem;
   }
 
   form button:hover {
     background: var(--accent2);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
   }
 
   .form-privacy {
@@ -1244,27 +1280,24 @@
   }
 
   footer .footer-brand {
-    font-family: 'Golos Text', sans-serif;
     font-size: 1rem;
     color: var(--accent);
     margin-bottom: 0.5rem;
   }
 
-  .footer-top {
-    display: inline-block;
+  footer a {
     color: var(--accent);
     text-decoration: none;
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
+    transition: color 0.3s ease;
   }
 
-  .footer-top:hover {
-    text-decoration: underline;
+  footer a:hover {
+    color: var(--accent2);
   }
 
   .quote-section {
     background: var(--bg);
-    padding: 6rem 2rem;
+    padding: 4rem 2rem;
     position: relative;
     z-index: 1;
     border-top: 1px solid var(--border);
@@ -1280,16 +1313,22 @@
   }
 
   .quote-photo {
-    width: 260px;
-    height: 260px;
+    width: 280px;
+    height: 280px;
     flex-shrink: 0;
     border-radius: 50%;
-    border: 1px solid var(--accent);
+    border: 2px solid var(--accent);
     background: var(--bg3);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .quote-photo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(200, 169, 110, 0.15);
   }
 
   .quote-photo img {
@@ -1304,15 +1343,12 @@
   }
 
   .quote-text .quote-manifest {
-    font-family: 'Golos Text', sans-serif;
     font-size: 0.95rem;
     font-weight: 300;
     font-style: italic;
     color: var(--quote-text);
     line-height: 1.7;
-    margin-bottom: 1.2rem;
-    letter-spacing: 0.02em;
-    opacity: 1;
+    margin-bottom: 1rem;
   }
 
   .quote-text .quote-manifest p {
@@ -1325,7 +1361,7 @@
 
   .quote-author {
     color: var(--accent);
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     font-weight: 400;
     letter-spacing: 0.04em;
     margin-bottom: 0.15rem;
@@ -1361,37 +1397,43 @@
 
   .process-section {
     background: var(--bg3);
+    padding: 4rem 2rem;
   }
 
   .process-steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 1.5rem;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
     position: relative;
   }
 
   .process-step {
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
     position: relative;
+    transition: transform 0.4s ease, background 0.3s ease, border-radius 0.3s ease;
+    border-radius: 8px;
+  }
+
+  .process-step:hover {
+    transform: translateY(-4px);
+    background: var(--bg2);
   }
 
   .step-num {
-    font-family: 'Golos Text', sans-serif;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 600;
     color: rgba(200, 169, 110, 0.15);
     line-height: 1;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
   }
 
   .step-title {
-    font-family: 'Golos Text', sans-serif;
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--accent);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
   }
 
   .step-desc {
@@ -1400,7 +1442,7 @@
   }
 
   .process-text-block {
-    margin-top: 3rem;
+    margin-top: 2.5rem;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -1433,7 +1475,7 @@
       padding: 1rem;
     }
     .price-box {
-      padding: 1.8rem;
+      padding: 1.5rem;
     }
     h2 {
       font-size: 1.5rem;
@@ -1442,6 +1484,9 @@
 </style>
 </head>
 <body>
+
+  <!-- Плавающая стрелка вверх -->
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Наверх">↑</a>
 
   <!-- NAV -->
   <nav>
@@ -1456,89 +1501,88 @@
       <h1>Ваш сайт есть.<br>Через какие <em>смыслы</em><br>он продаёт?</h1>
       <p class="hero-sub">Формируем восприятие бизнеса, которое работает на желание, доверие и продажи.</p>
       <div class="hero-cta-row">
-        <a href="#why" class="btn-primary">Узнать метод ↓</a>
+        <a href="#eagle" class="btn-primary">Узнать метод ↓</a>
       </div>
     </div>
   </section>
 
   <!-- INTRO BLOCK -->
-  <div class="intro-block">
-    <p class="intro-text">
-      У вас уже есть хороший продукт. У вас уже есть услуга, которая действительно делает жизнь клиента лучше. Вы вложили миллионы, месяцы и бесконечное количество сил и эмоций в создание этого.
-    </p>
-    <p class="intro-text" style="margin-top:0.5rem;">
-      Но обычный сайт уже не может передать всю ценность и душу вашего дела. <span class="highlight">Именно тогда поможет сайт со смыслом по методу МСС.</span> Ознакомьтесь ниже с нашим подходом.
-    </p>
+  <div class="intro-block fade-up">
+    <div class="container">
+      <p class="intro-text">
+        У вас уже есть хороший продукт. У вас уже есть услуга, которая действительно делает жизнь клиента лучше. Вы вложили миллионы, месяцы и бесконечное количество сил и эмоций в создание этого.
+      </p>
+      <p class="intro-text" style="margin-top:0.5rem;">
+        Но обычный сайт уже не может передать всю ценность и душу вашего дела. <span class="highlight">Именно тогда поможет сайт со смыслом по методу МСС.</span> Ознакомьтесь ниже с нашим подходом.
+      </p>
+    </div>
   </div>
 
-  <!-- WHY NORMAL SITES DONT WORK -->
-  <section class="why-section" id="why">
+  <!-- WHAT CHANGES -->
+  <section class="changes-section fade-up">
     <div class="container">
-      <div class="section-label">Почему обычные сайты не работают</div>
-      <h2>Сайт может быть красивым.<br><em>Но он не продаёт.</em></h2>
-      <div class="why-intro">
-        <p>Не потому что дизайн плохой.<br>
-        Не потому что мало трафика.<br>
-        А потому что не понимают главное:<br>
-        <strong>почему выбрать именно вас.</strong></p>
-      </div>
-
-      <div class="what-happens">
-        <h3>Что происходит, когда сайт без смысла</h3>
-        <ul>
-          <li>клиент заходит и сразу уходит: не видит ценности</li>
-          <li>вы тратите время на объяснения, письма, звонки</li>
-          <li>приходят «не те» клиенты или вообще никто</li>
-          <li>решение откладывается: «подумаю», «дорого», «не сейчас»</li>
-        </ul>
-        <div class="problem-text">Это не проблема дизайна. Это проблема отсутствия смыслов</div>
-      </div>
-
-      <div class="what-changes">
-        <h3>Что меняется, когда смысл на месте</h3>
-        <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1.2rem;">Сайт перестаёт быть просто красивой страницей. Он становится вашим лучшим менеджером по продажам 24/7 - объясняет, убеждает, ведёт к действию.</p>
-        <ul>
-          <li>человек понимает за первые 3-5 секунд: <strong style="color:var(--text);">это то, что я искал</strong></li>
-          <li>все возражения отпадают сами собой</li>
-          <li>вам не нужно доказывать и убеждать. Клиент уже доверяет вам после изучения сайта</li>
-          <li>заявка становится очевидным и логичным шагом, а не мучительным решением</li>
-        </ul>
-      </div>
-
-      <div class="sense-definition">
-        <p>Смысл - это не просто формулировки текста.<br>
-        Это точка, где совпадает: ваш продукт, желания клиента, его мотивация.</p>
-        <p style="margin-top:0.8rem;">Когда эта точка найдена - сайт начинает <strong>работать на вас 24/7</strong>.</p>
-      </div>
-
-      <div class="method-link-block">
-        <p>Это и есть метод МСС. Вот как мы это делаем ↓</p>
+      <div class="section-label">Что меняется</div>
+      <h2>Когда смысл <em>на месте</em></h2>
+      <div class="changes-grid">
+        <div class="changes-left">
+          <h3>Сайт перестаёт быть просто красивой страницей.</h3>
+          <p>Он становится вашим лучшим менеджером по продажам 24/7 — объясняет, убеждает, ведёт к действию.</p>
+        </div>
+        <div class="changes-right">
+          <div class="change-item">
+            <span class="icon">→</span>
+            <span class="text">человек понимает за первые 3-5 секунд: <strong style="color:var(--text);">это то, что я искал</strong></span>
+          </div>
+          <div class="change-item">
+            <span class="icon">→</span>
+            <span class="text">все возражения отпадают сами собой</span>
+          </div>
+          <div class="change-item">
+            <span class="icon">→</span>
+            <span class="text">вам не нужно доказывать и убеждать. Клиент уже доверяет вам после изучения сайта</span>
+          </div>
+          <div class="change-item">
+            <span class="icon">→</span>
+            <span class="text">заявка становится очевидным и логичным шагом</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- EAGLE EYE -->
-  <section class="eagle-section">
-    <div class="eagle-block">
-      <strong>Наш метод - «Глаз орла»</strong><br><br>
-      Глаз орла устроен иначе: он видит дальше, замечает мельчайшие движения и не теряет фокус. Так работает наш метод. Замечаем детали, создающие впечатление, и точно соединяем их в работающий механизм. Ничего лишнего - только точность, глубина и результат.
+  <!-- SENSE DEFINITION & EAGLE EYE -->
+  <section class="eagle-section fade-up" id="eagle">
+    <div class="container">
+      <div class="eagle-block">
+        <p style="font-size:0.95rem; color:var(--muted); font-style:italic; margin-bottom:1.5rem;">
+          Смысл — это не просто формулировки текста.<br>
+          Это точка, где совпадает: ваш продукт, желания клиента, его мотивация.<br>
+          Когда эта точка найдена — сайт начинает работать на вас 24/7.
+        </p>
+        <p style="margin-top:1.5rem;">
+          <strong>Наш метод — «Глаз орла»</strong>
+        </p>
+        <p style="margin-top:0.5rem;">
+          Глаз орла устроен иначе: он видит дальше, замечает мельчайшие движения и не теряет фокус. Так работает наш метод. Замечаем детали, создающие впечатление, и точно соединяем их в работающий механизм. Ничего лишнего — только точность, глубина и результат.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- CHAIN SECTION -->
-  <section class="chain-section">
+  <!-- CHAIN -->
+  <section class="chain-section fade-up">
     <div class="chain-container">
-      <div class="chain-title">Как мы проводим клиента по <em>сайту</em></div>
-      <div class="chain-subtitle">Мы выстраиваем воронку восприятия - от первого взгляда до решения</div>
+      <div class="chain-title">Как <em>проводим клиента</em> по сайту</div>
+      <div class="chain-subtitle">Выстраиваем воронку восприятия — от первого взгляда до решения</div>
       <div class="chain-wrapper">
         <div class="chain-item">
           <div class="step-label">Мысли</div>
-          <div class="step-desc">Направляем мысли клиента в сторону того, что выбор вас - это то, что ему нужно</div>
+          <div class="step-desc">Направляем мысли клиента в сторону того, что выбор вас — это то, что ему нужно</div>
         </div>
         <div class="chain-arrow">→</div>
         <div class="chain-item">
           <div class="step-label">Ощущения</div>
-          <div class="step-desc">Создаём состояние уверенности, вдохновлённости, спокойствия - в зависимости от вашего бизнеса. Это эмоциональное подкрепление, где начинает формироваться желание</div>
+          <div class="step-desc">Создаём состояние уверенности, вдохновлённости, спокойствия — в зависимости от вашего бизнеса. Это эмоциональное подкрепление, где начинает формироваться желание</div>
         </div>
         <div class="chain-arrow">→</div>
         <div class="chain-item">
@@ -1548,25 +1592,33 @@
         <div class="chain-arrow">→</div>
         <div class="chain-item">
           <div class="step-label">Продажа</div>
-          <div class="step-desc">Самый естественный блок - никаких жёстких манипуляций, мягко направляем и помогаем завершить целевое действие</div>
+          <div class="step-desc">Самый естественный блок — никаких жёстких манипуляций, мягко направляем и помогаем завершить целевое действие</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- COMPARISON SECTION -->
-  <section class="comparison-section">
+  <!-- FOR WHOM -->
+  <section class="forwhom-section fade-up">
+    <div class="container">
+      <div class="section-label">Для кого</div>
+      <p class="forwhom-text">
+        Мы работаем с <em>собственниками</em>, которые понимают, что сайт может быть не просто страницей в интернете, а <em>активом</em>, влияющим на восприятие бизнеса, доверие и продажи.
+      </p>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="comparison-section fade-up">
     <div class="container">
       <div class="section-label">Разница есть</div>
       <h2>Сайт без метода МСС <em>vs</em> Сайт по методу МСС</h2>
 
-      <!-- Header -->
       <div class="comparison-header">
         <div class="header-left">Сайт без метода МСС</div>
         <div class="header-right">Сайт по методу МСС</div>
       </div>
 
-      <!-- Row 1: Отель -->
       <div class="comparison-row">
         <div class="row-left">
           <div class="label">Для отеля:</div>
@@ -1577,7 +1629,6 @@
         </div>
       </div>
 
-      <!-- Row 2: Производство -->
       <div class="comparison-row">
         <div class="row-left">
           <div class="label">Для производства:</div>
@@ -1588,7 +1639,6 @@
         </div>
       </div>
 
-      <!-- Row 3: Ресторан -->
       <div class="comparison-row">
         <div class="row-left">
           <div class="label">Для ресторана:</div>
@@ -1599,17 +1649,16 @@
         </div>
       </div>
 
-      <!-- QUOTE after comparison -->
-      <div style="margin-top:3rem; text-align:center; border-top:1px solid var(--border); padding-top:3rem;">
+      <div style="margin-top:3rem; text-align:center; border-top:1px solid var(--border); padding-top:2.5rem;">
         <p class="top-quote">
-          Пока клиент не видит разницы -<br>он сравнивает цены.<br><em>Смыслы убирают сравнение.</em><br>Даже если вокруг демпингуют.
+          Пока клиент не видит разницы —<br>он сравнивает цены.<br><em>Смыслы убирают сравнение.</em><br>Даже если вокруг демпингуют.
         </p>
       </div>
     </div>
   </section>
 
   <!-- PROCESS -->
-  <section class="process-section">
+  <section class="process-section fade-up">
     <div class="container">
       <div class="section-label">Как мы работаем</div>
       <h2>Как мы работаем.<br><em>Кратко. По этапам:</em></h2>
@@ -1647,14 +1696,14 @@
       </div>
       <div class="process-text-block">
         <p>Вы получаете включённую работу всех специалистов: смысловика-стратега, маркетолога, дизайнера, продажника и современных технологий, и все это под личным управлением основателя студии.</p>
-        <p class="highlight">Ключевой продукт, который вы получаете в итоге, не сайт - а инструмент, который будет работать на ваш бизнес годами.</p>
+        <p class="highlight">Ключевой продукт, который вы получаете в итоге, не сайт — а инструмент, который будет работать на ваш бизнес годами.</p>
         <p>На всех слоях принятия решения у клиентов: через эмоции, впечатление, состояние, аргументы. С учетом сильного маркетинга и продающей системы.</p>
       </div>
     </div>
   </section>
 
   <!-- PRICE -->
-  <section class="price-section" id="price">
+  <section class="price-section fade-up" id="price">
     <div class="container">
       <div class="section-label">Стоимость</div>
       <h2>Прозрачная<br><em>цена</em></h2>
@@ -1664,20 +1713,22 @@
         <div class="urgency-badge">Принимаем ограниченное число проектов</div>
 
         <div class="price-desc">
-          <strong style="color:var(--accent);">Стратегия и смыслы</strong> - глубокое погружение в психологию целевой аудитории, формирование воронки восприятия вашего бизнеса<br><br>
-          <strong style="color:var(--accent);">Тексты</strong> - авторские тексты, которые передают состояние и ценность.<br><br>
-          <strong style="color:var(--accent);">Дизайн</strong> - визуальное решение, которое усиливает смыслы и работает на восприятие.<br><br>
-          <strong style="color:var(--accent);">Техническая реализация</strong> - настройка сайта, интеграция с необходимыми сервисами, адаптивная вёрстка, которая корректно отображается на всех устройствах и др.<br><br>
-          <strong style="color:var(--accent);">Личное сопровождение основателя студии</strong> - ведет проект от начала до конца, отвечает за качество и результат.
+          <strong style="color:var(--accent);">Стратегия и смыслы</strong> — глубокое погружение в психологию целевой аудитории, формирование воронки восприятия вашего бизнеса<br><br>
+          <strong style="color:var(--accent);">Тексты</strong> — авторские тексты, которые передают состояние и ценность.<br><br>
+          <strong style="color:var(--accent);">Дизайн</strong> — визуальное решение, которое усиливает смыслы и работает на восприятие.<br><br>
+          <strong style="color:var(--accent);">Техническая реализация</strong> — настройка сайта, интеграция с необходимыми сервисами, адаптивная вёрстка, которая корректно отображается на всех устройствах и др.<br><br>
+          <strong style="color:var(--accent);">Личное сопровождение основателя студии</strong> — ведет проект от начала до конца, отвечает за качество и результат.
         </div>
 
-        <a href="#contact" class="btn-primary" style="display:inline-flex;">Обсудить мой проект →</a>
+        <div class="price-btn-wrapper">
+          <a href="#contact" class="btn-outline">Обсудить мой проект →</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CASE SECTION -->
-  <section class="case-section">
+  <!-- CASE -->
+  <section class="case-section fade-up">
     <div class="container">
       <div class="section-label">Кейс</div>
       <h2><em>Отель «Лесная тишь»</em></h2>
@@ -1714,7 +1765,7 @@
   </section>
 
   <!-- FOUNDER -->
-  <div class="quote-section" id="founder">
+  <div class="quote-section fade-up" id="founder">
     <div class="quote-wrap">
       <div class="quote-photo">
         <img src="https://i.ibb.co/Fbh3Dcb8/IMG-0698.jpg" alt="Юлия, основатель МСС">
@@ -1737,13 +1788,13 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- FAQ -->
-  <section class="faq-section" id="faq">
+  <section class="faq-section fade-up" id="faq">
     <div class="container">
       <div class="section-label">Вопросы и ответы</div>
-      <h2>У вас есть вопросы -<br><em>у нас есть ответы</em></h2>
+      <h2>У вас есть вопросы —<br><em>у нас есть ответы</em></h2>
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">
@@ -1751,7 +1802,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-a">
-            <div class="faq-a-inner">Стандартный срок - 21-28 рабочих дней. Сроки также зависят от скорости утверждения и объема работы. Срочные проекты обсуждаем индивидуально.</div>
+            <div class="faq-a-inner">Стандартный срок — 21-28 рабочих дней. Сроки также зависят от скорости утверждения и объема работы. Срочные проекты обсуждаем индивидуально.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -1769,7 +1820,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-a">
-            <div class="faq-a-inner">Вы платите только за инструмент, который получите, а не за содержание команды и офиса. Современные технологии - нейросети, позволяют нам не нанимать подрядчиков в штат, а грамотное управление ими позволяет сократить сроки на техническую реализацию. Вы платите за метод и результат.</div>
+            <div class="faq-a-inner">Вы платите только за инструмент, который получите, а не за содержание команды и офиса. Современные технологии — нейросети, позволяют нам не нанимать подрядчиков в штат, а грамотное управление ими позволяет сократить сроки на техническую реализацию. Вы платите за метод и результат.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -1796,7 +1847,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-a">
-            <div class="faq-a-inner">Мы делаем базовую SEO-оптимизацию: правильные теги title и description, структуру заголовков, быструю загрузку, адаптацию под мобильные. Это фундамент для органического продвижения. Полноценное SEO-продвижение - мы на этом не специализируемся.</div>
+            <div class="faq-a-inner">Мы делаем базовую SEO-оптимизацию: правильные теги title и description, структуру заголовков, быструю загрузку, адаптацию под мобильные. Это фундамент для органического продвижения. Полноценное SEO-продвижение — мы на этом не специализируемся.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -1805,7 +1856,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-a">
-            <div class="faq-a-inner">Домен (.ru) - от 199 рублей в год. Хостинг - от 495 рублей в месяц. Помогаем выбрать, настроить и запустить - вам не придётся разбираться в этом самостоятельно.</div>
+            <div class="faq-a-inner">Домен (.ru) — от 199 рублей в год. Хостинг — от 495 рублей в месяц. Помогаем выбрать, настроить и запустить — вам не придётся разбираться в этом самостоятельно.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -1822,7 +1873,7 @@
   </section>
 
   <!-- MANIFEST -->
-  <section class="manifest-section" id="manifest">
+  <section class="manifest-section fade-up" id="manifest">
     <div class="container">
       <div class="section-label">Манифест МСС</div>
       <h2>Принципы,<br><em>в которые мы верим</em></h2>
@@ -1842,32 +1893,29 @@
         </div>
         <div class="manifest-card">
           <h3>Штучная ручная работа</h3>
-          <p>Мы не используем усредненные решения. С помощью глубокого погружения, анализа, опыта и современных технологий - мы создаем сайт, который раскрывает ваши сильные стороны. Как пошив костюма на заказ - никаких "как у всех".</p>
+          <p>Мы не используем усредненные решения. С помощью глубокого погружения, анализа, опыта и современных технологий — мы создаем сайт, который раскрывает ваши сильные стороны. Как пошив костюма на заказ — никаких "как у всех".</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BOUTIQUE NOTE -->
-  <section class="boutique-section">
-    <div class="boutique-block">
-      Мы работаем по концепции бутик-отеля. У нас нет потока или конвейера. К каждому сайту подходим индивидуально, закладываем в него личные ценности основателя. Мы погружаемся в смыслы, чтобы создать продукт, который будет работать годами. Не «красиво и продающе», а глубоко и по-настоящему.
+  <!-- BOUTIQUE -->
+  <section class="boutique-section fade-up">
+    <div class="container">
+      <div class="boutique-block">
+        Мы работаем по концепции бутик-отеля. У нас нет потока или конвейера. К каждому сайту подходим индивидуально, закладываем в него личные ценности основателя. Мы погружаемся в смыслы, чтобы создать продукт, который будет работать годами. Не «красиво и продающе», а глубоко и по-настоящему.
+      </div>
     </div>
   </section>
 
-  <!-- CTA AFTER MANIFEST -->
-  <section class="cta-after-manifest">
-    <a href="#contact" class="btn-primary">Стать единственным выбором →</a>
-  </section>
-
   <!-- CONTACT FORM -->
-  <section class="form-section" id="contact">
+  <section class="form-section fade-up" id="contact">
     <div class="container">
       <div class="form-wrap">
         <div class="form-left">
           <div class="section-label">Контакты</div>
           <h2>Обсудим<br>ваш <em>проект</em></h2>
-          <p>Оставьте заявку - расскажите о бизнесе и задаче. Отвечает лично основатель МСС.</p>
+          <p>Оставьте заявку — расскажите о бизнесе и задаче. Отвечает лично основатель МСС.</p>
           <div class="contact-lines">
             <div class="contact-line">
               <span>Telegram, WhatsApp, MAX:</span>
@@ -1927,12 +1975,46 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-brand">МСС·студия</div>
-    <p>Маркетинговые сайты со смыслом | Telegram, WhatsApp, MAX: <a href="tel:+79235703335" style="color:var(--accent); text-decoration:none;">+7 923 570-33-35</a></p>
+    <p>Маркетинговые сайты со смыслом | Telegram, WhatsApp, MAX: <a href="tel:+79235703335">+7 923 570-33-35</a></p>
     <p style="margin-top:0.5rem;">© 2026 МСС. Все права защищены.</p>
-    <a href="#" class="footer-top">↑ Наверх</a>
   </footer>
 
   <script>
+    // Плавающая стрелка вверх — появляется после блока основателя
+    const backToTopBtn = document.getElementById('backToTop');
+    const founderSection = document.getElementById('founder');
+
+    window.addEventListener('scroll', function() {
+      const founderBottom = founderSection.offsetTop + founderSection.offsetHeight;
+
+      if (window.scrollY + window.innerHeight > founderBottom) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+
+    // Плавное появление блоков при скролле
+    const fadeElements = document.querySelectorAll('.fade-up');
+
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    fadeElements.forEach(function(el) {
+      observer.observe(el);
+    });
+
+    // FAQ
     function toggleFaq(btn) {
       const item = btn.parentElement;
       const answer = item.querySelector('.faq-a');
@@ -1945,6 +2027,7 @@
       }
     }
 
+    // FORM
     async function handleFormSubmit(e) {
       e.preventDefault();
       const form = document.getElementById('mainForm');
@@ -1969,4 +2052,3 @@
   </script>
 </body>
 </html>
-
