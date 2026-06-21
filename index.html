@@ -53,7 +53,6 @@
     }
   }
 
-  /* ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ */
   .fade-up {
     opacity: 0;
     transform: translateY(40px);
@@ -65,18 +64,17 @@
     transform: translateY(0);
   }
 
-  /* Плавающая стрелка вверх */
   .back-to-top {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     background: transparent;
     color: var(--accent);
     border: 1.5px solid var(--accent);
     border-radius: 50%;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
@@ -247,8 +245,8 @@
     background: transparent;
     color: var(--accent);
     font-weight: 600;
-    font-size: 1rem;
-    padding: 0.9rem 2rem;
+    font-size: 0.85rem;
+    padding: 0.6rem 1.5rem;
     border-radius: 5px;
     text-decoration: none;
     border: 1.5px solid var(--accent);
@@ -312,7 +310,6 @@
     font-size: 1rem;
   }
 
-  /* INTRO BLOCK */
   .intro-block {
     background: var(--bg3);
     border-top: 1px solid var(--border);
@@ -337,7 +334,6 @@
     color: var(--accent);
   }
 
-  /* WHAT CHANGES BLOCK */
   .changes-section {
     background: var(--bg);
     padding: 4rem 2rem;
@@ -409,12 +405,31 @@
     }
   }
 
-  /* EAGLE EYE */
+  .sense-block {
+    background: var(--bg);
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sense-text {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.8;
+  }
+
+  .sense-text strong {
+    color: var(--accent);
+    font-style: normal;
+  }
+
   .eagle-section {
     background: var(--bg);
     padding: 2.5rem 2rem 4rem;
     text-align: center;
-    border-bottom: 1px solid var(--border);
     scroll-margin-top: 80px;
   }
 
@@ -431,7 +446,6 @@
     font-weight: 600;
   }
 
-  /* CHAIN SECTION */
   .chain-section {
     background: var(--bg2);
     padding: 4rem 2rem;
@@ -529,7 +543,6 @@
     }
   }
 
-  /* FOR WHOM */
   .forwhom-section {
     background: var(--bg2);
     padding: 3rem 2rem;
@@ -545,12 +558,6 @@
     line-height: 1.7;
   }
 
-  .forwhom-text em {
-    font-style: normal;
-    color: var(--accent);
-  }
-
-  /* COMPARISON SECTION */
   .comparison-section {
     background: var(--bg);
     padding: 4rem 2rem;
@@ -794,7 +801,6 @@
     margin-top: 1.5rem;
   }
 
-  /* CASE SECTION */
   .case-section {
     background: var(--bg);
     padding: 4rem 2rem;
@@ -833,6 +839,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  @media (max-width: 680px) {
+    .case-image img {
+      object-fit: contain;
+    }
   }
 
   .case-content .case-label {
@@ -985,7 +997,6 @@
     line-height: 1.7;
   }
 
-  /* BOUTIQUE */
   .boutique-section {
     background: var(--bg2);
     padding: 2rem 2rem 3rem;
@@ -999,13 +1010,6 @@
     line-height: 1.8;
     font-size: 0.9rem;
     font-style: italic;
-  }
-
-  /* CTA AFTER MANIFEST */
-  .cta-after-manifest {
-    text-align: center;
-    padding: 2.5rem 2rem 4rem;
-    background: var(--bg2);
   }
 
   .faq-section {
@@ -1141,26 +1145,32 @@
     gap: 0.8rem;
   }
 
-  .contact-line {
+  .contact-icons {
     display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-size: 0.9rem;
+    gap: 1.2rem;
+    margin-top: 0.3rem;
+  }
+
+  .contact-icons a {
     color: var(--muted);
-  }
-
-  .contact-line strong {
-    color: var(--text);
-  }
-
-  .contact-line a {
-    color: var(--accent);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
   }
 
-  .contact-line a:hover {
-    color: var(--accent2);
+  .contact-icons a:hover {
+    color: var(--text);
+    transform: translateY(-2px);
+  }
+
+  .contact-icons a svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
   }
 
   .contact-phone {
@@ -1295,6 +1305,23 @@
     color: var(--accent2);
   }
 
+  footer .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  footer .footer-links a {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  footer .footer-links a:hover {
+    color: var(--accent);
+  }
+
   .quote-section {
     background: var(--bg);
     padding: 4rem 2rem;
@@ -1387,7 +1414,7 @@
     .quote-text .quote-manifest {
       font-size: 0.9rem;
     }
-    .contact-line {
+    .contact-icons {
       justify-content: center;
     }
     .contact-phone {
@@ -1485,16 +1512,13 @@
 </head>
 <body>
 
-  <!-- Плавающая стрелка вверх -->
   <a href="#" class="back-to-top" id="backToTop" aria-label="Наверх">↑</a>
 
-  <!-- NAV -->
   <nav>
     <a href="#" class="logo">МСС<span>·студия</span></a>
     <a href="#contact" class="cta-nav">Обсудить проект →</a>
   </nav>
 
-  <!-- HERO -->
   <section style="padding:0; position:relative;">
     <div class="hero">
       <div class="hero-eyebrow">Маркетинговые сайты со смыслом</div>
@@ -1506,7 +1530,6 @@
     </div>
   </section>
 
-  <!-- INTRO BLOCK -->
   <div class="intro-block fade-up">
     <div class="container">
       <p class="intro-text">
@@ -1518,7 +1541,6 @@
     </div>
   </div>
 
-  <!-- WHAT CHANGES -->
   <section class="changes-section fade-up">
     <div class="container">
       <div class="section-label">Что меняется</div>
@@ -1550,18 +1572,22 @@
     </div>
   </section>
 
-  <!-- SENSE DEFINITION & EAGLE EYE -->
+  <!-- SENSE BLOCK (без верхней черты, с нижней) -->
+  <div class="sense-block fade-up">
+    <div class="container">
+      <div class="sense-text">
+        Смысл — это не просто формулировки текста.<br>
+        Это точка, где совпадает: ваш продукт, желания клиента, его мотивация.<br>
+        <strong>Когда эта точка найдена — сайт начинает работать на вас 24/7.</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- EAGLE EYE -->
   <section class="eagle-section fade-up" id="eagle">
     <div class="container">
       <div class="eagle-block">
-        <p style="font-size:0.95rem; color:var(--muted); font-style:italic; margin-bottom:1.5rem;">
-          Смысл — это не просто формулировки текста.<br>
-          Это точка, где совпадает: ваш продукт, желания клиента, его мотивация.<br>
-          Когда эта точка найдена — сайт начинает работать на вас 24/7.
-        </p>
-        <p style="margin-top:1.5rem;">
-          <strong>Наш метод — «Глаз орла»</strong>
-        </p>
+        <strong>Наш метод — «Глаз орла»</strong>
         <p style="margin-top:0.5rem;">
           Глаз орла устроен иначе: он видит дальше, замечает мельчайшие движения и не теряет фокус. Так работает наш метод. Замечаем детали, создающие впечатление, и точно соединяем их в работающий механизм. Ничего лишнего — только точность, глубина и результат.
         </p>
@@ -1569,7 +1595,6 @@
     </div>
   </section>
 
-  <!-- CHAIN -->
   <section class="chain-section fade-up">
     <div class="chain-container">
       <div class="chain-title">Как <em>проводим клиента</em> по сайту</div>
@@ -1598,17 +1623,15 @@
     </div>
   </section>
 
-  <!-- FOR WHOM -->
   <section class="forwhom-section fade-up">
     <div class="container">
       <div class="section-label">Для кого</div>
       <p class="forwhom-text">
-        Мы работаем с <em>собственниками</em>, которые понимают, что сайт может быть не просто страницей в интернете, а <em>активом</em>, влияющим на восприятие бизнеса, доверие и продажи.
+        Мы работаем с собственниками, которые понимают, что сайт может быть не просто страницей в интернете, а активом, влияющим на восприятие бизнеса, доверие и продажи.
       </p>
     </div>
   </section>
 
-  <!-- COMPARISON -->
   <section class="comparison-section fade-up">
     <div class="container">
       <div class="section-label">Разница есть</div>
@@ -1657,7 +1680,6 @@
     </div>
   </section>
 
-  <!-- PROCESS -->
   <section class="process-section fade-up">
     <div class="container">
       <div class="section-label">Как мы работаем</div>
@@ -1702,7 +1724,6 @@
     </div>
   </section>
 
-  <!-- PRICE -->
   <section class="price-section fade-up" id="price">
     <div class="container">
       <div class="section-label">Стоимость</div>
@@ -1727,7 +1748,6 @@
     </div>
   </section>
 
-  <!-- CASE -->
   <section class="case-section fade-up">
     <div class="container">
       <div class="section-label">Кейс</div>
@@ -1764,7 +1784,6 @@
     </div>
   </section>
 
-  <!-- FOUNDER -->
   <div class="quote-section fade-up" id="founder">
     <div class="quote-wrap">
       <div class="quote-photo">
@@ -1782,15 +1801,36 @@
         <p class="quote-role">Основатель МСС, больше 10 лет в маркетинге, сайтах и смыслах</p>
         <div class="contact-lines" style="margin-top:1.5rem;">
           <div class="contact-line">
-            <span>Telegram, WhatsApp, MAX:</span>
-            <strong style="margin-left:0.3rem;"><a href="tel:+79235703335">+7 923 570-33-35</a></strong>
+            <span style="color:var(--muted); font-size:0.9rem;">Связаться в мессенджерах:</span>
+          </div>
+          <div class="contact-icons">
+            <!-- Telegram -->
+            <a href="https://t.me/+79235703335" target="_blank" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+              </svg>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/79235703335" target="_blank" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </a>
+            <!-- MAX -->
+            <a href="https://max.ru/u/f9LHodD0cOLoxkW9wFeCkxVZlJ3mA_MRhaiLlPhd8qMJRL0nBcSNDEpkd_8" target="_blank" aria-label="MAX">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="contact-phone">
+            <a href="tel:+79235703335">+7 923 570-33-35</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- FAQ -->
   <section class="faq-section fade-up" id="faq">
     <div class="container">
       <div class="section-label">Вопросы и ответы</div>
@@ -1872,7 +1912,6 @@
     </div>
   </section>
 
-  <!-- MANIFEST -->
   <section class="manifest-section fade-up" id="manifest">
     <div class="container">
       <div class="section-label">Манифест МСС</div>
@@ -1899,7 +1938,6 @@
     </div>
   </section>
 
-  <!-- BOUTIQUE -->
   <section class="boutique-section fade-up">
     <div class="container">
       <div class="boutique-block">
@@ -1908,7 +1946,6 @@
     </div>
   </section>
 
-  <!-- CONTACT FORM -->
   <section class="form-section fade-up" id="contact">
     <div class="container">
       <div class="form-wrap">
@@ -1918,7 +1955,24 @@
           <p>Оставьте заявку — расскажите о бизнесе и задаче. Отвечает лично основатель МСС.</p>
           <div class="contact-lines">
             <div class="contact-line">
-              <span>Telegram, WhatsApp, MAX:</span>
+              <span style="color:var(--muted); font-size:0.9rem;">Связаться в мессенджерах:</span>
+            </div>
+            <div class="contact-icons">
+              <a href="https://t.me/+79235703335" target="_blank" aria-label="Telegram">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                </svg>
+              </a>
+              <a href="https://wa.me/79235703335" target="_blank" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+              </a>
+              <a href="https://max.ru/u/f9LHodD0cOLoxkW9wFeCkxVZlJ3mA_MRhaiLlPhd8qMJRL0nBcSNDEpkd_8" target="_blank" aria-label="MAX">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+                </svg>
+              </a>
             </div>
             <div class="contact-phone">
               <a href="tel:+79235703335">+7 923 570-33-35</a>
@@ -1972,15 +2026,18 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-brand">МСС·студия</div>
-    <p>Маркетинговые сайты со смыслом | Telegram, WhatsApp, MAX: <a href="tel:+79235703335">+7 923 570-33-35</a></p>
+    <p>Маркетинговые сайты со смыслом</p>
+    <div class="footer-links">
+      <a href="tel:+79235703335">+7 923 570-33-35</a>
+      <a href="#" target="_blank">Политика конфиденциальности</a>
+    </div>
     <p style="margin-top:0.5rem;">© 2026 МСС. Все права защищены.</p>
   </footer>
 
   <script>
-    // Плавающая стрелка вверх — появляется после блока основателя
+    // Плавающая стрелка вверх
     const backToTopBtn = document.getElementById('backToTop');
     const founderSection = document.getElementById('founder');
 
@@ -1994,7 +2051,7 @@
       }
     });
 
-    // Плавное появление блоков при скролле
+    // Плавное появление блоков
     const fadeElements = document.querySelectorAll('.fade-up');
 
     const observerOptions = {
