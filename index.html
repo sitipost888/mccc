@@ -1,12 +1,3 @@
-Понял! Исправляю:
-
-**"Подробнее → Отправим файл по запросу"** — **обычный текст, НЕ кликабельный**
-
----
-
-Вот полный код со всеми правками:
-
-```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -457,64 +448,6 @@
     font-weight: 600;
   }
 
-  .solution-section {
-    background: var(--bg);
-  }
-
-  .solution-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .solution-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.8rem;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.25s, transform 0.2s;
-  }
-
-  .solution-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-3px);
-  }
-
-  .solution-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--accent);
-  }
-
-  .solution-num {
-    font-family: 'Golos Text', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: rgba(200, 169, 110, 0.12);
-    line-height: 1;
-    margin-bottom: 0.8rem;
-  }
-
-  .solution-card h3 {
-    font-family: 'Golos Text', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 0.6rem;
-    color: var(--accent);
-  }
-
-  .solution-card p {
-    font-size: 0.88rem;
-    color: #b0aea6;
-  }
-
   /* CHAIN SECTION */
   .chain-section {
     background: var(--bg2);
@@ -533,12 +466,21 @@
     font-size: 1.6rem;
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 3rem;
+    margin-bottom: 0.3rem;
   }
 
   .chain-title em {
     font-style: normal;
     color: var(--accent);
+  }
+
+  .chain-subtitle {
+    text-align: center;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--muted);
+    margin-bottom: 3rem;
   }
 
   .chain-wrapper {
@@ -855,7 +797,7 @@
   .case-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .case-content h3 {
@@ -1481,7 +1423,6 @@
   }
 
   @media (max-width: 500px) {
-    .solution-grid,
     .manifest-grid {
       grid-template-columns: 1fr;
     }
@@ -1584,51 +1525,11 @@
     </div>
   </section>
 
-  <!-- ENGINEERING APPROACH -->
-  <section class="solution-section" id="approach">
-    <div class="container">
-      <div class="section-label">Инженерный подход</div>
-      <h2><em>Инженерный подход</em><br>к созданию <span style="color: #ffffff;">системы смыслов</span></h2>
-      <p class="section-desc">Мы относимся к сайту как к точному механизму. Каждый элемент - это деталь, которая выполняет свою функцию.</p>
-      <div class="solution-grid">
-        <div class="solution-card">
-          <div class="solution-num">01</div>
-          <h3>Главный экран как обещание</h3>
-          <p>Первое, что видит клиент. Мы делаем так, чтобы с первого взгляда было понятно: "Это то, что я искал". Первый экран - это не картинка, а обещание, которое вы даете своему клиенту.</p>
-        </div>
-        <div class="solution-card">
-          <div class="solution-num">02</div>
-          <h3>Тексты, которые говорят на языке клиента</h3>
-          <p>Никаких штампов. Только живые формулировки, которые попадают в желания и потребности. Клиент читает и узнает себя - и это самое сильное, что может быть в тексте. Для этого мы изучаем отзывы и слои принятия решения.</p>
-        </div>
-        <div class="solution-card">
-          <div class="solution-num">03</div>
-          <h3>Ощущения, которые нельзя подделать</h3>
-          <p>Передаем ощущения, которые возникают у клиента при контакте с вашим бизнесом. Для глэмпинга - тишину и перегрузку. Для производства - надежность и мощь. Эта работа с ощущениями помогает выбрать вас.</p>
-        </div>
-        <div class="solution-card">
-          <div class="solution-num">04</div>
-          <h3>Аргументы, которые ведут клиента</h3>
-          <p>Каждый блок сайта - это шаг в логике. Все стоит на своем месте и работает на то, чтобы клиент сказал "да".</p>
-        </div>
-        <div class="solution-card">
-          <div class="solution-num">05</div>
-          <h3>Сайт, который отвечает на вопросы раньше вас</h3>
-          <p>Мы предусматриваем все, чтобы у клиента не осталось сомнений. Сайт работает как вежливый, но профессиональный продавец.</p>
-        </div>
-        <div class="solution-card">
-          <div class="solution-num">06</div>
-          <h3>Штучная ручная работа</h3>
-          <p>Мы не используем усредненные решения. С помощью глубокого погружения, анализа, опыта и современных технологий - мы создаем сайт, который раскрывает ваши сильные стороны. Как пошив костюма на заказ - никаких "как у всех".</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CHAIN SECTION -->
   <section class="chain-section">
     <div class="chain-container">
-      <div class="chain-title">Мы ведём по <em>цепочке</em></div>
+      <div class="chain-title">Как мы проводим клиента по <em>сайту</em></div>
+      <div class="chain-subtitle">Мы выстраиваем воронку восприятия - от первого взгляда до решения</div>
       <div class="chain-wrapper">
         <div class="chain-item">
           <div class="step-label">Мысли</div>
@@ -1939,6 +1840,10 @@
           <h3>Спокойная уверенность</h3>
           <p>Мы переводим ваш профессионализм на язык, понятный клиенту. Ясность, которая ведёт к действию.</p>
         </div>
+        <div class="manifest-card">
+          <h3>Штучная ручная работа</h3>
+          <p>Мы не используем усредненные решения. С помощью глубокого погружения, анализа, опыта и современных технологий - мы создаем сайт, который раскрывает ваши сильные стороны. Как пошив костюма на заказ - никаких "как у всех".</p>
+        </div>
       </div>
     </div>
   </section>
@@ -2064,4 +1969,4 @@
   </script>
 </body>
 </html>
-```
+
