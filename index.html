@@ -20,14 +20,19 @@
   }
 
   :root {
-    --bg: #0a0a0f;
-    --bg2: #111118;
-    --bg3: #1a1a1f;
+    --bg-dark: #0a0a0f;
+    --bg-dark2: #111118;
+    --bg-dark3: #1a1a1f;
+    --bg-light: #f5f0e8;
+    --bg-light2: #ede8e0;
     --accent: #c8a96e;
     --accent2: #e8c989;
-    --text: #f0ede8;
-    --muted: #8a8880;
-    --border: rgba(200, 169, 110, 0.18);
+    --text-dark: #0a0a0f;
+    --text-light: #f0ede8;
+    --muted-dark: #5a5850;
+    --muted-light: #8a8880;
+    --border-dark: rgba(200, 169, 110, 0.18);
+    --border-light: rgba(10, 10, 15, 0.10);
     --white: #ffffff;
     --quote-text: #d5d2cc;
   }
@@ -37,22 +42,15 @@
   }
 
   body {
-    background: var(--bg);
-    color: var(--text);
+    background: var(--bg-dark);
+    color: var(--text-light);
     font-family: 'Golos Text', sans-serif;
     font-size: 16px;
     line-height: 1.7;
     overflow-x: hidden;
-    opacity: 0;
-    animation: fadeInBody 0.6s ease forwards;
   }
 
-  @keyframes fadeInBody {
-    to {
-      opacity: 1;
-    }
-  }
-
+  /* ПЛАВНОЕ ПОЯВЛЕНИЕ */
   .fade-up {
     opacity: 0;
     transform: translateY(40px);
@@ -64,38 +62,7 @@
     transform: translateY(0);
   }
 
-  .back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 48px;
-    height: 48px;
-    background: transparent;
-    color: var(--accent);
-    border: 1.5px solid var(--accent);
-    border-radius: 50%;
-    font-size: 1.3rem;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.3s ease, background 0.3s ease;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-  }
-
-  .back-to-top:hover {
-    background: rgba(200, 169, 110, 0.15);
-    transform: translateY(-3px);
-  }
-
-  .back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-  }
-
+  /* НАВИГАЦИЯ */
   nav {
     position: fixed;
     top: 0;
@@ -108,7 +75,7 @@
     padding: 1rem 2rem;
     background: rgba(10, 10, 15, 0.85);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-dark);
   }
 
   .logo {
@@ -121,7 +88,7 @@
   }
 
   .logo span {
-    color: var(--text);
+    color: var(--text-light);
   }
 
   nav a.cta-nav {
@@ -142,6 +109,7 @@
     transform: translateY(-1px);
   }
 
+  /* HERO */
   .hero {
     position: relative;
     min-height: 100vh;
@@ -163,8 +131,6 @@
     display: flex;
     align-items: center;
     gap: 0.7rem;
-    opacity: 0;
-    animation: fadeInUp 0.8s ease 0.2s forwards;
   }
 
   .hero-eyebrow::before {
@@ -175,21 +141,13 @@
     background: var(--accent);
   }
 
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   h1 {
     font-weight: 600;
     font-size: clamp(2.2rem, 5vw, 4rem);
     line-height: 1.1;
     letter-spacing: -0.02em;
     margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeInUp 0.8s ease 0.4s forwards;
+    color: var(--text-light);
   }
 
   h1 em {
@@ -199,12 +157,10 @@
 
   .hero-sub {
     font-size: 1.05rem;
-    color: var(--muted);
+    color: var(--muted-light);
     max-width: 580px;
     margin-bottom: 4rem;
     line-height: 1.6;
-    opacity: 0;
-    animation: fadeInUp 0.8s ease 0.6s forwards;
   }
 
   .hero-cta-row {
@@ -212,8 +168,6 @@
     flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
-    opacity: 0;
-    animation: fadeInUp 0.8s ease 0.8s forwards;
   }
 
   .btn-primary {
@@ -238,28 +192,7 @@
     box-shadow: 0 8px 25px rgba(200, 169, 110, 0.25);
   }
 
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: transparent;
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 0.85rem;
-    padding: 0.6rem 1.5rem;
-    border-radius: 5px;
-    text-decoration: none;
-    border: 1.5px solid var(--accent);
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-
-  .btn-outline:hover {
-    background: rgba(200, 169, 110, 0.08);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(200, 169, 110, 0.1);
-  }
-
+  /* БЛОКИ */
   section {
     position: relative;
     z-index: 1;
@@ -304,17 +237,18 @@
   }
 
   .section-desc {
-    color: var(--muted);
+    color: var(--muted-light);
     max-width: 600px;
     margin-bottom: 2.5rem;
     font-size: 1rem;
   }
 
+  /* ИНТРО (светлый фон) */
   .intro-block {
-    background: var(--bg3);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 3rem 2rem;
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    padding: 3.5rem 2rem;
     text-align: center;
     position: relative;
     z-index: 1;
@@ -326,7 +260,7 @@
     max-width: 750px;
     margin: 0 auto;
     line-height: 1.7;
-    color: var(--text);
+    color: var(--text-dark);
     text-align: center;
   }
 
@@ -334,10 +268,11 @@
     color: var(--accent);
   }
 
+  /* ЧТО МЕНЯЕТСЯ (тёмный фон) */
   .changes-section {
-    background: var(--bg);
+    background: var(--bg-dark);
     padding: 4rem 2rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-dark);
   }
 
   .changes-grid {
@@ -358,7 +293,7 @@
 
   .changes-left p {
     font-size: 0.95rem;
-    color: var(--text);
+    color: var(--text-light);
     line-height: 1.7;
   }
 
@@ -373,7 +308,7 @@
     align-items: flex-start;
     gap: 0.8rem;
     padding: 0.8rem 1rem;
-    background: var(--bg2);
+    background: var(--bg-dark2);
     border-radius: 8px;
     border-left: 2px solid var(--accent);
     transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
@@ -381,8 +316,7 @@
 
   .change-item:hover {
     transform: translateX(6px);
-    background: var(--bg3);
-    box-shadow: 0 4px 15px rgba(200, 169, 110, 0.06);
+    background: var(--bg-dark3);
   }
 
   .change-item .icon {
@@ -394,7 +328,7 @@
 
   .change-item .text {
     font-size: 0.92rem;
-    color: var(--text);
+    color: var(--text-light);
     line-height: 1.5;
   }
 
@@ -405,18 +339,19 @@
     }
   }
 
+  /* СМЫСЛ (светлый фон) */
   .sense-block {
-    background: var(--bg);
-    padding: 3rem 2rem 0.5rem;
+    background: var(--bg-light);
+    padding: 3rem 2rem 2rem;
     text-align: center;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-light);
   }
 
   .sense-text {
     max-width: 700px;
     margin: 0 auto;
     font-size: 0.95rem;
-    color: var(--muted);
+    color: var(--muted-dark);
     font-style: italic;
     line-height: 1.8;
   }
@@ -426,17 +361,19 @@
     font-style: normal;
   }
 
+  /* ГЛАЗ ОРЛА (тёмный) */
   .eagle-section {
-    background: var(--bg);
+    background: var(--bg-dark);
     padding: 2.5rem 2rem 4rem;
     text-align: center;
+    border-bottom: 1px solid var(--border-dark);
     scroll-margin-top: 80px;
   }
 
   .eagle-block {
     max-width: 700px;
     margin: 0 auto;
-    color: var(--text);
+    color: var(--text-light);
     line-height: 1.8;
     font-size: 0.95rem;
   }
@@ -446,22 +383,18 @@
     font-weight: 600;
   }
 
+  /* ЦЕПОЧКА (светлый фон) */
   .chain-section {
-    background: var(--bg2);
+    background: var(--bg-light);
     padding: 4rem 2rem;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .chain-container {
-    max-width: 1100px;
-    margin: 0 auto;
+    border-bottom: 1px solid var(--border-light);
   }
 
   .chain-title {
     text-align: center;
     font-size: 1.8rem;
     font-weight: 600;
-    color: var(--text);
+    color: var(--text-dark);
     margin-bottom: 0.3rem;
   }
 
@@ -474,7 +407,7 @@
     text-align: center;
     font-size: 0.95rem;
     font-weight: 400;
-    color: var(--muted);
+    color: var(--muted-dark);
     margin-bottom: 2.5rem;
   }
 
@@ -490,8 +423,8 @@
     flex: 1;
     min-width: 200px;
     max-width: 240px;
-    background: var(--bg3);
-    border: 1px solid var(--border);
+    background: var(--bg-light2);
+    border: 1px solid var(--border-light);
     border-radius: 10px;
     padding: 1.8rem 1.2rem;
     text-align: center;
@@ -514,7 +447,7 @@
 
   .chain-item .step-desc {
     font-size: 0.85rem;
-    color: var(--muted);
+    color: var(--muted-dark);
     line-height: 1.6;
   }
 
@@ -543,26 +476,41 @@
     }
   }
 
+  /* ДЛЯ КОГО (тёмный фон) */
   .forwhom-section {
-    background: var(--bg2);
+    background: var(--bg-dark2);
     padding: 3rem 2rem;
     text-align: center;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-dark);
   }
 
   .forwhom-text {
     font-size: 1.05rem;
-    color: var(--text);
+    color: var(--text-light);
     max-width: 750px;
     margin: 0 auto;
     line-height: 1.7;
   }
 
+  .forwhom-text em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  /* СРАВНЕНИЕ (светлый фон) */
   .comparison-section {
-    background: var(--bg);
+    background: var(--bg-light);
     padding: 4rem 2rem;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .comparison-section h2 {
+    color: var(--text-dark);
+  }
+
+  .comparison-section .section-desc {
+    color: var(--muted-dark);
   }
 
   .comparison-header {
@@ -576,14 +524,14 @@
   }
 
   .comparison-header .header-left {
-    background: var(--bg2);
-    border: 1px solid var(--border);
+    background: var(--bg-light2);
+    border: 1px solid var(--border-light);
     border-right: none;
     padding: 1rem 1.5rem;
     text-align: center;
     font-weight: 600;
     font-size: 0.9rem;
-    color: var(--text);
+    color: var(--text-dark);
     letter-spacing: 0.04em;
     display: flex;
     align-items: center;
@@ -608,7 +556,7 @@
     display: grid;
     grid-template-columns: 30% 70%;
     gap: 0;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-light);
     transition: background 0.3s ease;
   }
 
@@ -623,8 +571,8 @@
   }
 
   .comparison-row .row-left {
-    background: var(--bg2);
-    border-left: 1px solid var(--border);
+    background: var(--bg-light2);
+    border-left: 1px solid var(--border-light);
     border-right: none;
     padding: 1rem 1.5rem;
     display: flex;
@@ -643,7 +591,7 @@
 
   .comparison-row .row-left .text {
     font-size: 0.9rem;
-    color: var(--text);
+    color: var(--text-dark);
     line-height: 1.5;
     font-weight: 400;
   }
@@ -660,7 +608,7 @@
 
   .comparison-row .row-right .text {
     font-size: 0.9rem;
-    color: var(--white);
+    color: var(--text-dark);
     line-height: 1.6;
     font-weight: 400;
   }
@@ -672,7 +620,7 @@
 
     .comparison-row {
       display: block;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-light);
       border-radius: 10px;
       margin-bottom: 1.5rem;
       overflow: hidden;
@@ -680,9 +628,9 @@
 
     .comparison-row .row-left {
       border: none;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--border-light);
       padding: 1rem;
-      background: var(--bg2);
+      background: var(--bg-light2);
     }
 
     .comparison-row .row-left .label {
@@ -696,7 +644,7 @@
 
     .comparison-row .row-left .text {
       font-size: 0.9rem;
-      color: var(--text);
+      color: var(--text-dark);
       line-height: 1.5;
       font-weight: 400;
     }
@@ -709,7 +657,7 @@
 
     .comparison-row .row-right .text {
       font-size: 0.9rem;
-      color: var(--white);
+      color: var(--text-dark);
       line-height: 1.6;
       font-weight: 400;
     }
@@ -721,7 +669,7 @@
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.5;
-    color: var(--text);
+    color: var(--text-dark);
   }
 
   .top-quote em {
@@ -729,14 +677,119 @@
     color: var(--accent);
   }
 
-  .price-section {
-    background: var(--bg2);
+  /* ПРОЦЕСС (тёмный) */
+  .process-section {
+    background: var(--bg-dark3);
     padding: 4rem 2rem;
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 2rem;
+    margin-top: 2.5rem;
+    position: relative;
+  }
+
+  .process-step {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    position: relative;
+    transition: transform 0.4s ease, background 0.3s ease;
+    border-radius: 8px;
+    background: var(--bg-dark2);
+  }
+
+  .process-step:hover {
+    transform: translateY(-4px);
+    background: var(--bg-dark);
+  }
+
+  .process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: -0.25rem;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: var(--border-dark);
+    opacity: 0.3;
+  }
+
+  .process-step:nth-child(2)::after,
+  .process-step:nth-child(4)::after,
+  .process-step:nth-child(6)::after {
+    display: none;
+  }
+
+  .step-num {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: rgba(200, 169, 110, 0.15);
+    line-height: 1;
+    margin-bottom: 0.6rem;
+  }
+
+  .step-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .step-desc {
+    font-size: 0.82rem;
+    color: var(--muted-light);
+  }
+
+  @media (max-width: 680px) {
+    .process-steps {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .process-step:not(:last-child)::after {
+      display: none;
+    }
+  }
+
+  .process-text-block {
+    margin-top: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .process-text-block p {
+    font-size: 0.92rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+  }
+
+  .process-text-block p:last-child {
+    margin-bottom: 0;
+  }
+
+  .process-text-block .highlight {
+    color: var(--accent);
+  }
+
+  /* ЦЕНА (светлый фон) */
+  .price-section {
+    background: var(--bg-light);
+    padding: 4rem 2rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .price-section h2 {
+    color: var(--text-dark);
   }
 
   .price-box {
-    background: var(--bg3);
-    border: 1px solid var(--border);
+    background: var(--bg-light2);
+    border: 1px solid var(--border-light);
     border-radius: 12px;
     padding: 2.5rem;
     max-width: 620px;
@@ -747,7 +800,7 @@
 
   .price-box:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
   }
 
   .price-box::before {
@@ -770,7 +823,7 @@
 
   .price-note {
     font-size: 0.9rem;
-    color: var(--muted);
+    color: var(--muted-dark);
     margin-bottom: 1.5rem;
     font-style: italic;
     font-weight: 300;
@@ -778,18 +831,22 @@
 
   .price-desc {
     font-size: 0.85rem;
-    color: var(--muted);
+    color: var(--muted-dark);
     line-height: 1.7;
     margin-bottom: 1.5rem;
+  }
+
+  .price-desc strong {
+    color: var(--accent);
   }
 
   .urgency-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(101, 0, 11, 0.15);
-    border: 1px solid rgba(101, 0, 11, 0.3);
-    color: #c45a5a;
+    background: rgba(101, 0, 11, 0.08);
+    border: 1px solid rgba(101, 0, 11, 0.15);
+    color: #8a3a3a;
     font-size: 0.8rem;
     font-weight: 500;
     padding: 0.4rem 1rem;
@@ -801,11 +858,33 @@
     margin-top: 1.5rem;
   }
 
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.6rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 1.5px solid var(--accent);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn-outline:hover {
+    background: rgba(200, 169, 110, 0.08);
+    transform: translateY(-2px);
+  }
+
+  /* КЕЙС (тёмный) */
   .case-section {
-    background: var(--bg);
+    background: var(--bg-dark);
     padding: 4rem 2rem;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
   }
 
   .case-wrapper {
@@ -818,7 +897,7 @@
 
   .case-image {
     position: relative;
-    background: var(--bg2);
+    background: var(--bg-dark2);
     border: none;
     border-radius: 10px;
     overflow: hidden;
@@ -832,19 +911,13 @@
 
   .case-image:hover {
     transform: scale(1.01);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
   }
 
   .case-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  @media (max-width: 680px) {
-    .case-image img {
-      object-fit: contain;
-    }
+    display: block;
   }
 
   .case-content .case-label {
@@ -857,7 +930,7 @@
   }
 
   .case-content .case-desc {
-    color: var(--text);
+    color: var(--text-light);
     font-size: 0.9rem;
     line-height: 1.7;
     margin-bottom: 1rem;
@@ -871,7 +944,7 @@
 
   .case-content .case-list li {
     font-size: 0.9rem;
-    color: var(--text);
+    color: var(--text-light);
     line-height: 1.6;
     padding-left: 1.5rem;
     position: relative;
@@ -901,7 +974,7 @@
   }
 
   .case-content .case-link-wrapper .label-text {
-    color: var(--text);
+    color: var(--text-light);
     font-size: 0.95rem;
     font-weight: 400;
   }
@@ -912,7 +985,7 @@
     font-size: 0.95rem;
     font-weight: 400;
     font-style: italic;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
+    transition: color 0.3s ease;
   }
 
   .case-content .case-link-wrapper .case-link:hover {
@@ -921,7 +994,7 @@
   }
 
   .case-content .case-readmore-text {
-    color: var(--text);
+    color: var(--text-light);
     font-size: 0.95rem;
     font-weight: 600;
     margin-top: 0.5rem;
@@ -929,7 +1002,7 @@
 
   .case-content .case-readmore-note {
     font-style: italic;
-    color: var(--muted);
+    color: var(--muted-light);
     font-size: 0.8rem;
     margin-top: 0.3rem;
   }
@@ -942,11 +1015,242 @@
       aspect-ratio: 16 / 9;
       max-height: 280px;
     }
+    .case-image img {
+      object-fit: contain;
+    }
   }
 
-  .manifest-section {
-    background: var(--bg2);
+  /* ОСНОВАТЕЛЬ (светлый) */
+  .quote-section {
+    background: var(--bg-light);
     padding: 4rem 2rem;
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .quote-section h2 {
+    color: var(--text-dark);
+  }
+
+  .quote-wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .quote-photo {
+    width: 280px;
+    height: 280px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background: var(--bg-light2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .quote-photo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(200, 169, 110, 0.08);
+  }
+
+  .quote-photo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .quote-text {
+    flex: 1;
+  }
+
+  .quote-text .quote-manifest {
+    font-size: 0.95rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted-dark);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .quote-text .quote-manifest p {
+    margin-bottom: 0.8rem;
+  }
+
+  .quote-text .quote-manifest p:last-child {
+    margin-bottom: 0;
+  }
+
+  .quote-author {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.15rem;
+  }
+
+  .quote-role {
+    color: var(--muted-dark);
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+  }
+
+  .contact-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
+
+  .contact-link:hover {
+    color: var(--accent2);
+  }
+
+  .contact-phone a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .contact-phone a:hover {
+    color: var(--accent2);
+  }
+
+  @media (max-width: 600px) {
+    .quote-wrap {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+    }
+    .quote-photo {
+      width: 220px;
+      height: 220px;
+    }
+  }
+
+  /* FAQ (тёмный) */
+  .faq-section {
+    background: var(--bg-dark);
+    padding: 4rem 2rem;
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 2rem;
+    max-width: 800px;
+    border: 1px solid var(--border-dark);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 680px) {
+    .faq-list {
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+    }
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-q {
+    width: 100%;
+    background: var(--bg-dark2);
+    border: none;
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .faq-q:hover {
+    background: var(--bg-dark3);
+  }
+
+  .faq-q.open {
+    color: var(--accent);
+  }
+
+  .faq-arrow {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    border: 1.5px solid var(--muted-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    font-size: 0.7rem;
+  }
+
+  .faq-q.open .faq-arrow {
+    transform: rotate(45deg);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    background: var(--bg-dark);
+  }
+
+  .faq-a.open {
+    max-height: 500px;
+  }
+
+  .faq-a-inner {
+    padding: 1rem 1.5rem 1.5rem;
+    font-size: 0.9rem;
+    color: var(--muted-light);
+    line-height: 1.75;
+  }
+
+  /* МАНИФЕСТ (светлый) */
+  .manifest-section {
+    background: var(--bg-light);
+    padding: 4rem 2rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .manifest-section h2 {
+    color: var(--text-dark);
+  }
+
+  .manifest-section .section-desc {
+    color: var(--muted-dark);
   }
 
   .manifest-grid {
@@ -957,8 +1261,8 @@
   }
 
   .manifest-card {
-    background: var(--bg3);
-    border: 1px solid var(--border);
+    background: var(--bg-light2);
+    border: 1px solid var(--border-light);
     border-radius: 10px;
     padding: 2rem;
     position: relative;
@@ -969,7 +1273,6 @@
   .manifest-card:hover {
     border-color: var(--accent);
     transform: translateY(-6px);
-    box-shadow: 0 12px 40px rgba(200, 169, 110, 0.08);
   }
 
   .manifest-card::before {
@@ -993,126 +1296,50 @@
 
   .manifest-card p {
     font-size: 0.9rem;
-    color: var(--muted);
+    color: var(--muted-dark);
     line-height: 1.7;
   }
 
+  /* БУТИК-ОТЕЛЬ (тёмный) */
   .boutique-section {
-    background: var(--bg2);
+    background: var(--bg-dark2);
     padding: 2rem 2rem 3rem;
     text-align: center;
+    border-bottom: 1px solid var(--border-dark);
   }
 
   .boutique-block {
     max-width: 650px;
     margin: 0 auto;
-    color: var(--text);
+    color: var(--text-light);
     line-height: 1.8;
     font-size: 0.9rem;
     font-style: italic;
   }
 
-  .faq-section {
-    background: var(--bg);
-    padding: 4rem 2rem;
+  /* CTA (светлый) */
+  .cta-after-manifest {
+    text-align: center;
+    padding: 2.5rem 2rem 4rem;
+    background: var(--bg-light);
+    border-bottom: 1px solid var(--border-light);
   }
 
-  .faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 2rem;
-    max-width: 800px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    margin-left: auto;
-    margin-right: auto;
+  .cta-after-manifest .btn-primary {
+    font-size: 1rem;
+    padding: 0.9rem 2rem;
   }
 
   @media (max-width: 680px) {
-    .faq-list {
-      max-width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-      border-radius: 0;
-      border-left: none;
-      border-right: none;
+    .cta-after-manifest .btn-primary {
+      font-size: 0.85rem;
+      padding: 0.7rem 1.5rem;
     }
   }
 
-  .faq-item {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .faq-item:last-child {
-    border-bottom: none;
-  }
-
-  .faq-q {
-    width: 100%;
-    background: var(--bg2);
-    border: none;
-    padding: 1.2rem 1.5rem;
-    text-align: left;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--text);
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-
-  .faq-q:hover {
-    background: var(--bg3);
-  }
-
-  .faq-q.open {
-    color: var(--accent);
-  }
-
-  .faq-arrow {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    border: 1.5px solid var(--muted);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-    font-size: 0.7rem;
-  }
-
-  .faq-q.open .faq-arrow {
-    transform: rotate(45deg);
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  .faq-a {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.3s ease;
-    background: var(--bg);
-  }
-
-  .faq-a.open {
-    max-height: 500px;
-  }
-
-  .faq-a-inner {
-    padding: 1rem 1.5rem 1.5rem;
-    font-size: 0.9rem;
-    color: var(--muted);
-    line-height: 1.75;
-  }
-
+  /* ФОРМА (тёмный) */
   .form-section {
-    background: var(--bg2);
+    background: var(--bg-dark2);
     padding: 4rem 2rem;
   }
 
@@ -1134,47 +1361,20 @@
   }
 
   .form-left p {
-    color: var(--muted);
+    color: var(--muted-light);
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
-  }
-
-  .contact-lines {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .contact-link {
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-  }
-
-  .contact-link:hover {
-    color: var(--accent2);
   }
 
   .contact-phone {
     margin-top: 0.3rem;
     font-size: 0.9rem;
-    color: var(--text);
-  }
-
-  .contact-phone a {
-    color: var(--accent);
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-
-  .contact-phone a:hover {
-    color: var(--accent2);
+    color: var(--text-light);
   }
 
   form {
-    background: var(--bg3);
-    border: 1px solid var(--border);
+    background: var(--bg-dark3);
+    border: 1px solid var(--border-dark);
     border-radius: 10px;
     padding: 2rem;
     display: flex;
@@ -1190,7 +1390,7 @@
 
   form label {
     font-size: 0.8rem;
-    color: var(--muted);
+    color: var(--muted-light);
     margin-bottom: -0.5rem;
     letter-spacing: 0.04em;
   }
@@ -1198,10 +1398,10 @@
   form input,
   form textarea,
   form select {
-    background: var(--bg);
+    background: var(--bg-dark);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 6px;
-    color: var(--text);
+    color: var(--text-light);
     font-size: 0.95rem;
     padding: 0.7rem 1rem;
     outline: none;
@@ -1246,7 +1446,7 @@
 
   .form-privacy {
     font-size: 0.75rem;
-    color: var(--muted);
+    color: var(--muted-light);
     text-align: center;
   }
 
@@ -1257,17 +1457,18 @@
     border-radius: 8px;
     padding: 1.5rem;
     text-align: center;
-    color: var(--text);
+    color: var(--text-light);
     font-size: 0.95rem;
   }
 
+  /* ФУТЕР (тёмный) */
   footer {
-    background: var(--bg);
-    border-top: 1px solid var(--border);
+    background: var(--bg-dark);
+    border-top: 1px solid var(--border-dark);
     padding: 2rem;
     text-align: center;
     font-size: 0.8rem;
-    color: var(--muted);
+    color: var(--muted-light);
     position: relative;
     z-index: 1;
   }
@@ -1298,205 +1499,10 @@
 
   footer .footer-links a {
     font-size: 0.75rem;
-    color: var(--muted);
+    color: var(--muted-light);
   }
 
   footer .footer-links a:hover {
-    color: var(--accent);
-  }
-
-  .quote-section {
-    background: var(--bg);
-    padding: 4rem 2rem;
-    position: relative;
-    z-index: 1;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .quote-wrap {
-    max-width: 850px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-  }
-
-  .quote-photo {
-    width: 280px;
-    height: 280px;
-    flex-shrink: 0;
-    border-radius: 50%;
-    border: 2px solid var(--accent);
-    background: var(--bg3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
-
-  .quote-photo:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 30px rgba(200, 169, 110, 0.15);
-  }
-
-  .quote-photo img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  .quote-text {
-    flex: 1;
-  }
-
-  .quote-text .quote-manifest {
-    font-size: 0.95rem;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--quote-text);
-    line-height: 1.7;
-    margin-bottom: 1rem;
-  }
-
-  .quote-text .quote-manifest p {
-    margin-bottom: 0.8rem;
-  }
-
-  .quote-text .quote-manifest p:last-child {
-    margin-bottom: 0;
-  }
-
-  .quote-author {
-    color: var(--accent);
-    font-size: 0.9rem;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    margin-bottom: 0.15rem;
-  }
-
-  .quote-role {
-    color: var(--muted);
-    font-size: 0.8rem;
-    font-weight: 300;
-    letter-spacing: 0.03em;
-  }
-
-  @media (max-width: 600px) {
-    .quote-wrap {
-      flex-direction: column;
-      text-align: center;
-      gap: 2rem;
-    }
-    .quote-photo {
-      width: 220px;
-      height: 220px;
-    }
-    .quote-text .quote-manifest {
-      font-size: 0.9rem;
-    }
-    .contact-phone {
-      text-align: center;
-    }
-  }
-
-  .process-section {
-    background: var(--bg3);
-    padding: 4rem 2rem;
-  }
-
-  .process-steps {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem 2rem;
-    margin-top: 2.5rem;
-    position: relative;
-  }
-
-  .process-step {
-    text-align: center;
-    padding: 1.5rem 1rem;
-    position: relative;
-    transition: transform 0.4s ease, background 0.3s ease, border-radius 0.3s ease;
-    border-radius: 8px;
-  }
-
-  .process-step:hover {
-    transform: translateY(-4px);
-    background: var(--bg2);
-  }
-
-  /* Тонкие разделители между этапами */
-  .process-step:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    bottom: -0.25rem;
-    left: 20%;
-    right: 20%;
-    height: 1px;
-    background: var(--border);
-    opacity: 0.3;
-  }
-
-  /* Убираем разделитель у чётных (второй в ряду) */
-  .process-step:nth-child(2)::after,
-  .process-step:nth-child(4)::after,
-  .process-step:nth-child(6)::after {
-    display: none;
-  }
-
-  .step-num {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: rgba(200, 169, 110, 0.15);
-    line-height: 1;
-    margin-bottom: 0.6rem;
-  }
-
-  .step-title {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 0.4rem;
-  }
-
-  .step-desc {
-    font-size: 0.82rem;
-    color: var(--muted);
-  }
-
-  @media (max-width: 680px) {
-    .process-steps {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    .process-step:not(:last-child)::after {
-      display: none;
-    }
-  }
-
-  .process-text-block {
-    margin-top: 2.5rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-
-  .process-text-block p {
-    font-size: 0.92rem;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 0.8rem;
-  }
-
-  .process-text-block p:last-child {
-    margin-bottom: 0;
-  }
-
-  .process-text-block .highlight {
     color: var(--accent);
   }
 
@@ -1521,24 +1527,24 @@
 </head>
 <body>
 
-  <a href="#" class="back-to-top" id="backToTop" aria-label="Наверх">↑</a>
-
   <nav>
     <a href="#" class="logo">МСС<span>·студия</span></a>
     <a href="#contact" class="cta-nav">Обсудить проект →</a>
   </nav>
 
+  <!-- HERO -->
   <section style="padding:0; position:relative;">
     <div class="hero">
       <div class="hero-eyebrow">Маркетинговые сайты со смыслом</div>
       <h1>Ваш сайт есть.<br>Через какие <em>смыслы</em><br>он продаёт?</h1>
       <p class="hero-sub">Формируем восприятие бизнеса, которое работает на желание, доверие и продажи.</p>
       <div class="hero-cta-row">
-        <a href="#eagle" class="btn-primary">Узнать метод ↓</a>
+        <a href="#eagle" class="btn-primary" id="scrollToEagle">Узнать метод ↓</a>
       </div>
     </div>
   </section>
 
+  <!-- ИНТРО (светлый фон) -->
   <div class="intro-block fade-up">
     <div class="container">
       <p class="intro-text">
@@ -1550,6 +1556,7 @@
     </div>
   </div>
 
+  <!-- ЧТО МЕНЯЕТСЯ (тёмный фон) -->
   <section class="changes-section fade-up">
     <div class="container">
       <div class="section-label">Что меняется</div>
@@ -1557,12 +1564,12 @@
       <div class="changes-grid">
         <div class="changes-left">
           <h3>Сайт перестаёт быть просто красивой страницей.</h3>
-          <p>Он становится вашим лучшим менеджером по продажам 24/7 — объясняет, убеждает, ведёт к действию.</p>
+          <p>Он становится вашим лучшим менеджером по продажам - объясняет, убеждает, ведёт к действию.</p>
         </div>
         <div class="changes-right">
           <div class="change-item">
             <span class="icon">→</span>
-            <span class="text">человек понимает за первые 3-5 секунд: <strong style="color:var(--text);">это то, что я искал</strong></span>
+            <span class="text">человек понимает за первые 3-5 секунд: <strong style="color:var(--text-light);">это то, что я искал</strong></span>
           </div>
           <div class="change-item">
             <span class="icon">→</span>
@@ -1581,42 +1588,43 @@
     </div>
   </section>
 
-  <!-- SENSE BLOCK -->
+  <!-- СМЫСЛ (светлый фон) -->
   <div class="sense-block fade-up">
     <div class="container">
       <div class="sense-text">
-        Смысл — это не просто формулировки текста.<br>
+        Смысл - это не просто формулировки текста.<br>
         Это точка, где совпадает: ваш продукт, желания клиента, его мотивация.<br>
-        <strong>Когда эта точка найдена — сайт начинает работать на вас 24/7.</strong>
+        <strong>Когда эта точка найдена - сайт начинает работать на вас 24/7.</strong>
       </div>
     </div>
   </div>
 
-  <!-- EAGLE EYE -->
+  <!-- ГЛАЗ ОРЛА (тёмный фон) -->
   <section class="eagle-section fade-up" id="eagle">
     <div class="container">
       <div class="eagle-block">
-        <strong>Наш метод — «Глаз орла»</strong>
+        <strong>Наш метод - «Глаз орла»</strong>
         <p style="margin-top:0.5rem;">
-          Глаз орла устроен иначе: он видит дальше, замечает мельчайшие движения и не теряет фокус. Так работает наш метод. Замечаем детали, создающие впечатление, и точно соединяем их в работающий механизм. Ничего лишнего — только точность, глубина и результат.
+          Глаз орла устроен иначе: он видит дальше, замечает мельчайшие движения и не теряет фокус. Так работает наш метод. Замечаем детали, создающие впечатление, и точно соединяем их в работающий механизм. Ничего лишнего - только точность, глубина и результат.
         </p>
       </div>
     </div>
   </section>
 
+  <!-- ЦЕПОЧКА (светлый фон) -->
   <section class="chain-section fade-up">
-    <div class="chain-container">
-      <div class="chain-title">Как <em>проводим клиента</em> по сайту</div>
-      <div class="chain-subtitle">Выстраиваем воронку восприятия — от первого взгляда до решения</div>
+    <div class="container">
+      <div class="chain-title"><em>Метод</em> в действии</div>
+      <div class="chain-subtitle">Выстраиваем воронку восприятия - от первого взгляда до решения</div>
       <div class="chain-wrapper">
         <div class="chain-item">
           <div class="step-label">Мысли</div>
-          <div class="step-desc">Направляем мысли клиента в сторону того, что выбор вас — это то, что ему нужно</div>
+          <div class="step-desc">Направляем мысли клиента в сторону того, что выбор вас - это то, что ему нужно</div>
         </div>
         <div class="chain-arrow">→</div>
         <div class="chain-item">
           <div class="step-label">Ощущения</div>
-          <div class="step-desc">Создаём состояние уверенности, вдохновлённости, спокойствия — в зависимости от вашего бизнеса. Это эмоциональное подкрепление, где начинает формироваться желание</div>
+          <div class="step-desc">Создаём состояние уверенности, вдохновлённости, спокойствия - в зависимости от вашего бизнеса. Это эмоциональное подкрепление, где начинает формироваться желание</div>
         </div>
         <div class="chain-arrow">→</div>
         <div class="chain-item">
@@ -1626,21 +1634,23 @@
         <div class="chain-arrow">→</div>
         <div class="chain-item">
           <div class="step-label">Продажа</div>
-          <div class="step-desc">Самый естественный блок — никаких жёстких манипуляций, мягко направляем и помогаем завершить целевое действие</div>
+          <div class="step-desc">Самый естественный блок - никаких жёстких манипуляций, мягко направляем и помогаем завершить целевое действие</div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ДЛЯ КОГО (тёмный фон) -->
   <section class="forwhom-section fade-up">
     <div class="container">
       <div class="section-label">Для кого</div>
       <p class="forwhom-text">
-        Мы работаем с собственниками, которые понимают, что сайт может быть не просто страницей в интернете, а активом, влияющим на восприятие бизнеса, доверие и продажи.
+        Мы работаем с собственниками, которые понимают, что сайт может быть не просто страницей в интернете, а <em>активом</em>, влияющим на восприятие бизнеса, доверие и продажи.
       </p>
     </div>
   </section>
 
+  <!-- СРАВНЕНИЕ (светлый фон) -->
   <section class="comparison-section fade-up">
     <div class="container">
       <div class="section-label">Разница есть</div>
@@ -1681,14 +1691,15 @@
         </div>
       </div>
 
-      <div style="margin-top:3rem; text-align:center; border-top:1px solid var(--border); padding-top:2.5rem;">
+      <div style="margin-top:3rem; text-align:center; border-top:1px solid var(--border-light); padding-top:2.5rem;">
         <p class="top-quote">
-          Пока клиент не видит разницы —<br>он сравнивает цены.<br><em>Смыслы убирают сравнение.</em><br>Даже если вокруг демпингуют.
+          Пока клиент не видит разницы -<br>он сравнивает цены.<br><em>Смыслы убирают сравнение.</em><br>Даже если вокруг демпингуют.
         </p>
       </div>
     </div>
   </section>
 
+  <!-- ПРОЦЕСС (тёмный фон) -->
   <section class="process-section fade-up">
     <div class="container">
       <div class="section-label">Как мы работаем</div>
@@ -1727,12 +1738,13 @@
       </div>
       <div class="process-text-block">
         <p>Вы получаете включённую работу всех специалистов: смысловика-стратега, маркетолога, дизайнера, продажника и современных технологий, и все это под личным управлением основателя студии.</p>
-        <p class="highlight">Ключевой продукт, который вы получаете в итоге, не сайт — а инструмент, который будет работать на ваш бизнес годами.</p>
+        <p class="highlight">Ключевой продукт, который вы получаете в итоге, не сайт - а инструмент, который будет работать на ваш бизнес годами.</p>
         <p>На всех слоях принятия решения у клиентов: через эмоции, впечатление, состояние, аргументы. С учетом сильного маркетинга и продающей системы.</p>
       </div>
     </div>
   </section>
 
+  <!-- ЦЕНА (светлый фон) -->
   <section class="price-section fade-up" id="price">
     <div class="container">
       <div class="section-label">Стоимость</div>
@@ -1743,11 +1755,11 @@
         <div class="urgency-badge">Принимаем ограниченное число проектов</div>
 
         <div class="price-desc">
-          <strong style="color:var(--accent);">Стратегия и смыслы</strong> — глубокое погружение в психологию целевой аудитории, формирование воронки восприятия вашего бизнеса<br><br>
-          <strong style="color:var(--accent);">Тексты</strong> — авторские тексты, которые передают состояние и ценность.<br><br>
-          <strong style="color:var(--accent);">Дизайн</strong> — визуальное решение, которое усиливает смыслы и работает на восприятие.<br><br>
-          <strong style="color:var(--accent);">Техническая реализация</strong> — настройка сайта, интеграция с необходимыми сервисами, адаптивная вёрстка, которая корректно отображается на всех устройствах и др.<br><br>
-          <strong style="color:var(--accent);">Личное сопровождение основателя студии</strong> — ведет проект от начала до конца, отвечает за качество и результат.
+          <strong>Стратегия и смыслы</strong> - глубокое погружение в психологию целевой аудитории, формирование воронки восприятия вашего бизнеса<br><br>
+          <strong>Тексты</strong> - авторские тексты, которые передают состояние и ценность.<br><br>
+          <strong>Дизайн</strong> - визуальное решение, которое усиливает смыслы и работает на восприятие.<br><br>
+          <strong>Техническая реализация</strong> - настройка сайта, интеграция с необходимыми сервисами, адаптивная вёрстка, которая корректно отображается на всех устройствах и др.<br><br>
+          <strong>Личное сопровождение основателя студии</strong> - ведет проект от начала до конца, отвечает за качество и результат.
         </div>
 
         <div class="price-btn-wrapper">
@@ -1757,6 +1769,7 @@
     </div>
   </section>
 
+  <!-- КЕЙС (тёмный фон) -->
   <section class="case-section fade-up">
     <div class="container">
       <div class="section-label">Кейс</div>
@@ -1793,6 +1806,7 @@
     </div>
   </section>
 
+  <!-- ОСНОВАТЕЛЬ (светлый фон) -->
   <div class="quote-section fade-up" id="founder">
     <div class="quote-wrap">
       <div class="quote-photo">
@@ -1808,9 +1822,9 @@
         </div>
         <p class="quote-author">Юлия</p>
         <p class="quote-role">Основатель МСС, больше 10 лет в маркетинге, сайтах и смыслах</p>
-        <div class="contact-lines" style="margin-top:1.5rem;">
-          <div class="contact-line">
-            <span style="color:var(--muted); font-size:0.9rem;">Связаться в мессенджерах:</span>
+        <div style="margin-top:1.5rem;">
+          <div>
+            <span style="color:var(--muted-dark); font-size:0.9rem;">Связаться в мессенджерах:</span>
           </div>
           <div>
             <a href="https://t.me/+79235703335" target="_blank" class="contact-link">Telegram</a>, 
@@ -1825,10 +1839,10 @@
     </div>
   </div>
 
+  <!-- FAQ (тёмный фон) -->
   <section class="faq-section fade-up" id="faq">
     <div class="container">
       <div class="section-label">Вопросы и ответы</div>
-      <h2>У вас есть вопросы —<br><em>у нас есть ответы</em></h2>
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">
@@ -1836,7 +1850,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-a">
-            <div class="faq-a-inner">Стандартный срок — 21-28 рабочих дней. Сроки также зависят от скорости утверждения и объема работы. Срочные проекты обсуждаем индивидуально.</div>
+            <div class="faq-a-inner">Стандартный срок - 21-28 рабочих дней. Сроки также зависят от скорости утверждения и объема работы. Срочные проекты обсуждаем индивидуально.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -1854,16 +1868,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-a">
-            <div class="faq-a-inner">Вы платите только за инструмент, который получите, а не за содержание команды и офиса. Современные технологии — нейросети, позволяют нам не нанимать подрядчиков в штат, а грамотное управление ими позволяет сократить сроки на техническую реализацию. Вы платите за метод и результат.</div>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            Вы работаете по договору?
-            <span class="faq-arrow">+</span>
-          </button>
-          <div class="faq-a">
-            <div class="faq-a-inner">Обязательно, работаем официально, по договору.</div>
+            <div class="faq-a-inner">Вы платите только за инструмент, который получите, а не за содержание команды и офиса. Современные технологии - нейросети, позволяют нам не нанимать подрядчиков в штат, а грамотное управление ими позволяет сократить сроки на техническую реализацию. Вы платите за метод и результат.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -1877,61 +1882,44 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">
-            Будет ли сайт продвигаться в поисковиках?
+            Домен и хостинг
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-a">
-            <div class="faq-a-inner">Мы делаем базовую SEO-оптимизацию: правильные теги title и description, структуру заголовков, быструю загрузку, адаптацию под мобильные. Это фундамент для органического продвижения. Полноценное SEO-продвижение — мы на этом не специализируемся.</div>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            Сколько стоит хостинг и домен?
-            <span class="faq-arrow">+</span>
-          </button>
-          <div class="faq-a">
-            <div class="faq-a-inner">Домен (.ru) — от 199 рублей в год. Хостинг — от 495 рублей в месяц. Помогаем выбрать, настроить и запустить — вам не придётся разбираться в этом самостоятельно.</div>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            Как происходит оплата?
-            <span class="faq-arrow">+</span>
-          </button>
-          <div class="faq-a">
-            <div class="faq-a-inner">Работаем по 100% предоплате. После оплаты мы приступаем к созданию сайта. Вы получаете результат в оговоренный срок.</div>
+            <div class="faq-a-inner">Домен и хостинг оплачиваются отдельно. Помогаем с выбором и настройкой.</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- МАНИФЕСТ (светлый фон) -->
   <section class="manifest-section fade-up" id="manifest">
     <div class="container">
       <div class="section-label">Манифест МСС</div>
-      <h2>Принципы,<br><em>в которые мы верим</em></h2>
-      <p class="section-desc">Это не просто слова. Это то, как мы работаем каждый день.</p>
+      <h2>Принципы,<br><em>на которых строится наш метод</em></h2>
       <div class="manifest-grid">
         <div class="manifest-card">
           <h3>Аргументы</h3>
           <p>Мы готовим сайт как важную встречу: продумываем аргументы, предвосхищаем вопросы и создаём первое впечатление, которое невозможно игнорировать.</p>
         </div>
         <div class="manifest-card">
-          <h3>Дизайн вне трендов</h3>
-          <p>Мы не гонимся за трендами. Мы создаём дизайн, который будет актуален, пока ваш бизнес растёт.</p>
-        </div>
-        <div class="manifest-card">
           <h3>Спокойная уверенность</h3>
-          <p>Мы переводим ваш профессионализм на язык, понятный клиенту. Ясность, которая ведёт к действию.</p>
+          <p>Мы переводим ваш профессионализм на язык, понятный клиенту. Ясность, которая ведёт к действию. Вы можете молча отправить ссылку на сайт и он все объяснит сам.</p>
         </div>
         <div class="manifest-card">
           <h3>Штучная ручная работа</h3>
-          <p>Мы не используем усредненные решения. С помощью глубокого погружения, анализа, опыта и современных технологий — мы создаем сайт, который раскрывает ваши сильные стороны. Как пошив костюма на заказ — никаких "как у всех".</p>
+          <p>Мы не используем усредненные решения. С помощью глубокого погружения, анализа, опыта и современных технологий - мы создаем сайт, который раскрывает ваши сильные стороны. Как пошив костюма на заказ - никаких "как у всех".</p>
+        </div>
+        <div class="manifest-card">
+          <h3>Концепция бутик-отеля</h3>
+          <p>Мы работаем без конвейера. К каждому сайту подходим индивидуально, закладываем в него личные ценности основателя. Мы создаем сайт для ваших клиентов, чтобы они чувствовали себя желанными и выбирали вас без сомнений.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- БУТИК-ОТЕЛЬ (тёмный фон) -->
   <section class="boutique-section fade-up">
     <div class="container">
       <div class="boutique-block">
@@ -1940,17 +1928,21 @@
     </div>
   </section>
 
+  <!-- CTA (светлый фон) -->
+  <section class="cta-after-manifest fade-up">
+    <a href="#contact" class="btn-primary">Стать единственным выбором →</a>
+  </section>
+
+  <!-- ФОРМА (тёмный фон) -->
   <section class="form-section fade-up" id="contact">
     <div class="container">
       <div class="form-wrap">
         <div class="form-left">
           <div class="section-label">Контакты</div>
           <h2>Обсудим<br>ваш <em>проект</em></h2>
-          <p>Оставьте заявку — расскажите о бизнесе и задаче. Отвечает лично основатель МСС.</p>
-          <div class="contact-lines">
-            <div class="contact-line">
-              <span style="color:var(--muted); font-size:0.9rem;">Связаться в мессенджерах:</span>
-            </div>
+          <p>Оставьте заявку - расскажите о бизнесе и задаче. Отвечает лично основатель МСС.</p>
+          <div>
+            <div style="color:var(--muted-light); font-size:0.9rem;">Связаться в мессенджерах:</div>
             <div>
               <a href="https://t.me/+79235703335" target="_blank" class="contact-link">Telegram</a>, 
               <a href="https://wa.me/79235703335" target="_blank" class="contact-link">WhatsApp</a>, 
@@ -1959,7 +1951,7 @@
             <div class="contact-phone">
               <a href="tel:+79235703335">+7 923 570-33-35</a>
             </div>
-            <div class="contact-line" style="margin-top:0.8rem; font-size:0.8rem;">
+            <div style="margin-top:0.8rem; font-size:0.8rem; color:var(--muted-light);">
               Работаем по всей России. Всё онлайн.
             </div>
           </div>
@@ -2008,6 +2000,7 @@
     </div>
   </section>
 
+  <!-- ФУТЕР -->
   <footer>
     <div class="footer-brand">МСС·студия</div>
     <p>Маркетинговые сайты со смыслом</p>
@@ -2019,28 +2012,14 @@
   </footer>
 
   <script>
-    // Плавающая стрелка вверх
-    const backToTopBtn = document.getElementById('backToTop');
-    const founderSection = document.getElementById('founder');
+    // Убираем #eagle из адресной строки при загрузке
+    if (window.location.hash === '#eagle') {
+      history.replaceState(null, null, window.location.pathname);
+    }
 
-    window.addEventListener('scroll', function() {
-      const founderBottom = founderSection.offsetTop + founderSection.offsetHeight;
-
-      if (window.scrollY + window.innerHeight > founderBottom) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
-      }
-    });
-
-    // Плавное появление блоков
+    // ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ
     const fadeElements = document.querySelectorAll('.fade-up');
-
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
+    const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
     const observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
@@ -2048,7 +2027,6 @@
         }
       });
     }, observerOptions);
-
     fadeElements.forEach(function(el) {
       observer.observe(el);
     });
@@ -2066,7 +2044,7 @@
       }
     }
 
-    // FORM
+    // ФОРМА
     async function handleFormSubmit(e) {
       e.preventDefault();
       const form = document.getElementById('mainForm');
@@ -2091,4 +2069,3 @@
   </script>
 </body>
 </html>
-    
