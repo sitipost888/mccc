@@ -360,19 +360,23 @@
     max-width: 700px;
     margin: 0 auto;
     font-size: 0.95rem;
-    color: var(--muted-dark);
+    color: var(--text-dark);
     font-weight: 400;
     line-height: 1.8;
   }
 
   .sense-text strong {
     color: var(--text-dark);
-    font-weight: 700;
+    font-weight: 400;
   }
 
   @media (max-width: 768px) {
+    .sense-text {
+      color: var(--text-dark);
+    }
     .sense-text strong {
       color: var(--text-dark);
+      font-weight: 400;
     }
   }
 
@@ -420,7 +424,7 @@
     text-align: center;
     font-size: 0.95rem;
     font-weight: 400;
-    color: var(--muted-dark);
+    color: var(--text-dark);
     margin-bottom: 2.5rem;
   }
 
@@ -429,7 +433,8 @@
       color: var(--gold-dark);
     }
     .chain-subtitle {
-      color: var(--muted-dark);
+      color: var(--text-dark);
+      font-weight: 400;
     }
   }
 
@@ -469,17 +474,19 @@
 
   .chain-item .step-desc {
     font-size: 0.85rem;
-    color: var(--muted-dark);
+    color: var(--text-dark);
     line-height: 1.6;
+    font-weight: 400;
   }
 
   @media (max-width: 768px) {
     .chain-item .step-label {
       color: var(--text-dark);
-      font-weight: 700;
+      font-weight: 600;
     }
     .chain-item .step-desc {
-      color: var(--muted-dark);
+      color: var(--text-dark);
+      font-weight: 400;
     }
   }
 
@@ -526,6 +533,7 @@
   @media (max-width: 768px) {
     .forwhom-text {
       color: var(--text-light);
+      font-size: 0.9rem;
     }
   }
 
@@ -541,7 +549,13 @@
   }
 
   .comparison-section .section-desc {
-    color: var(--muted-dark);
+    color: var(--text-dark);
+  }
+
+  @media (max-width: 768px) {
+    .comparison-section .section-desc {
+      color: var(--text-dark);
+    }
   }
 
   .comparison-header {
@@ -895,17 +909,23 @@
 
   .price-note {
     font-size: 0.9rem;
-    color: var(--muted-dark);
+    color: var(--text-dark);
     margin-bottom: 1.5rem;
-    font-style: italic;
-    font-weight: 300;
+    font-weight: 400;
+  }
+
+  @media (max-width: 768px) {
+    .price-note {
+      color: var(--text-dark);
+    }
   }
 
   .price-desc {
     font-size: 0.85rem;
-    color: var(--muted-dark);
+    color: var(--text-dark);
     line-height: 1.7;
     margin-bottom: 1.5rem;
+    font-weight: 400;
   }
 
   .price-desc strong {
@@ -985,7 +1005,7 @@
 
   .case-image {
     position: relative;
-    background: var(--bg-dark2);
+    background: transparent;
     border: none;
     border-radius: 10px;
     overflow: hidden;
@@ -1004,7 +1024,7 @@
   .case-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
 
@@ -1102,9 +1122,16 @@
     .case-image {
       aspect-ratio: 16 / 9;
       max-height: 280px;
+      background: transparent;
+      border-radius: 10px;
+      margin: 0;
+      padding: 0;
     }
     .case-image img {
+      width: 100%;
+      height: 100%;
       object-fit: contain;
+      border-radius: 0;
     }
   }
 
@@ -1173,7 +1200,7 @@
     font-size: 0.95rem;
     font-weight: 300;
     font-style: italic;
-    color: var(--muted-dark);
+    color: var(--text-dark);
     line-height: 1.7;
     margin-bottom: 1rem;
   }
@@ -1184,6 +1211,12 @@
 
   .quote-text .quote-manifest p:last-child {
     margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .quote-text .quote-manifest {
+      color: var(--text-dark);
+    }
   }
 
   .quote-author {
@@ -1201,10 +1234,17 @@
   }
 
   .quote-role {
-    color: var(--muted-dark);
+    color: var(--text-dark);
     font-size: 0.8rem;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.03em;
+  }
+
+  @media (max-width: 768px) {
+    .quote-role {
+      color: var(--text-dark);
+      font-weight: 400;
+    }
   }
 
   .contact-link {
@@ -1373,7 +1413,13 @@
   }
 
   .manifest-section .section-desc {
-    color: var(--muted-dark);
+    color: var(--text-dark);
+  }
+
+  @media (max-width: 768px) {
+    .manifest-section .section-desc {
+      color: var(--text-dark);
+    }
   }
 
   .manifest-grid {
@@ -1419,8 +1465,19 @@
 
   .manifest-card p {
     font-size: 0.9rem;
-    color: var(--muted-dark);
+    color: var(--text-dark);
     line-height: 1.7;
+    font-weight: 400;
+  }
+
+  @media (max-width: 768px) {
+    .manifest-card h3 {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+    .manifest-card p {
+      color: var(--text-dark);
+    }
   }
 
   .form-section {
@@ -1446,9 +1503,15 @@
   }
 
   .form-left p {
-    color: var(--muted-light);
+    color: var(--text-dark);
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .form-left p {
+      color: var(--text-dark);
+    }
   }
 
   .contact-phone {
