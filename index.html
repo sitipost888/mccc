@@ -33,6 +33,7 @@
     --muted-light: #8a8880;
     --border-dark: rgba(200, 169, 110, 0.18);
     --border-light: rgba(10, 10, 15, 0.10);
+    --gold-dark: #b8952e;
     --white: #ffffff;
     --quote-text: #d5d2cc;
   }
@@ -50,7 +51,6 @@
     overflow-x: hidden;
   }
 
-  /* ПЛАВНОЕ ПОЯВЛЕНИЕ */
   .fade-up {
     opacity: 0;
     transform: translateY(40px);
@@ -62,7 +62,6 @@
     transform: translateY(0);
   }
 
-  /* НАВИГАЦИЯ */
   nav {
     position: fixed;
     top: 0;
@@ -109,7 +108,6 @@
     transform: translateY(-1px);
   }
 
-  /* HERO */
   .hero {
     position: relative;
     min-height: 100vh;
@@ -192,7 +190,6 @@
     box-shadow: 0 8px 25px rgba(200, 169, 110, 0.25);
   }
 
-  /* БЛОКИ */
   section {
     position: relative;
     z-index: 1;
@@ -243,7 +240,6 @@
     font-size: 1rem;
   }
 
-  /* ИНТРО (светлый фон) */
   .intro-block {
     background: var(--bg-light);
     border-top: 1px solid var(--border-light);
@@ -268,7 +264,21 @@
     color: var(--accent);
   }
 
-  /* ЧТО МЕНЯЕТСЯ (тёмный фон) */
+  @media (max-width: 768px) {
+    .intro-text {
+      font-size: 0.9rem;
+    }
+    .intro-text .highlight {
+      color: var(--gold-dark);
+    }
+    section {
+      padding: 2.5rem 1.5rem;
+    }
+    .section-label {
+      font-size: 0.65rem;
+    }
+  }
+
   .changes-section {
     background: var(--bg-dark);
     padding: 4rem 2rem;
@@ -339,7 +349,6 @@
     }
   }
 
-  /* СМЫСЛ (светлый фон) */
   .sense-block {
     background: var(--bg-light);
     padding: 3rem 2rem 2rem;
@@ -352,16 +361,21 @@
     margin: 0 auto;
     font-size: 0.95rem;
     color: var(--muted-dark);
-    font-style: italic;
+    font-weight: 400;
     line-height: 1.8;
   }
 
   .sense-text strong {
-    color: var(--accent);
-    font-style: normal;
+    color: var(--text-dark);
+    font-weight: 700;
   }
 
-  /* ГЛАЗ ОРЛА (тёмный) */
+  @media (max-width: 768px) {
+    .sense-text strong {
+      color: var(--text-dark);
+    }
+  }
+
   .eagle-section {
     background: var(--bg-dark);
     padding: 2.5rem 2rem 4rem;
@@ -383,7 +397,6 @@
     font-weight: 600;
   }
 
-  /* ЦЕПОЧКА (светлый фон) */
   .chain-section {
     background: var(--bg-light);
     padding: 4rem 2rem;
@@ -409,6 +422,15 @@
     font-weight: 400;
     color: var(--muted-dark);
     margin-bottom: 2.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .chain-title em {
+      color: var(--gold-dark);
+    }
+    .chain-subtitle {
+      color: var(--muted-dark);
+    }
   }
 
   .chain-wrapper {
@@ -441,7 +463,7 @@
   .chain-item .step-label {
     font-size: 1.05rem;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--text-dark);
     margin-bottom: 0.6rem;
   }
 
@@ -449,6 +471,16 @@
     font-size: 0.85rem;
     color: var(--muted-dark);
     line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .chain-item .step-label {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+    .chain-item .step-desc {
+      color: var(--muted-dark);
+    }
   }
 
   .chain-arrow {
@@ -476,7 +508,6 @@
     }
   }
 
-  /* ДЛЯ КОГО (тёмный фон) */
   .forwhom-section {
     background: var(--bg-dark2);
     padding: 3rem 2rem;
@@ -492,12 +523,12 @@
     line-height: 1.7;
   }
 
-  .forwhom-text em {
-    font-style: normal;
-    color: var(--accent);
+  @media (max-width: 768px) {
+    .forwhom-text {
+      color: var(--text-light);
+    }
   }
 
-  /* СРАВНЕНИЕ (светлый фон) */
   .comparison-section {
     background: var(--bg-light);
     padding: 4rem 2rem;
@@ -545,11 +576,17 @@
     text-align: center;
     font-weight: 600;
     font-size: 0.9rem;
-    color: var(--accent);
+    color: var(--gold-dark);
     letter-spacing: 0.04em;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .comparison-header .header-right {
+      color: var(--gold-dark);
+    }
   }
 
   .comparison-row {
@@ -582,11 +619,17 @@
 
   .comparison-row .row-left .label {
     font-size: 0.7rem;
-    color: var(--accent);
+    color: var(--gold-dark);
     font-weight: 500;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     margin-bottom: 0.2rem;
+  }
+
+  @media (max-width: 768px) {
+    .comparison-row .row-left .label {
+      color: var(--gold-dark);
+    }
   }
 
   .comparison-row .row-left .text {
@@ -613,6 +656,15 @@
     font-weight: 400;
   }
 
+  @media (max-width: 768px) {
+    .comparison-row .row-left .text {
+      color: var(--text-dark);
+    }
+    .comparison-row .row-right .text {
+      color: var(--text-dark);
+    }
+  }
+
   @media (max-width: 680px) {
     .comparison-header {
       display: none;
@@ -635,7 +687,7 @@
 
     .comparison-row .row-left .label {
       font-size: 0.7rem;
-      color: var(--accent);
+      color: var(--gold-dark);
       font-weight: 500;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -677,7 +729,12 @@
     color: var(--accent);
   }
 
-  /* ПРОЦЕСС (тёмный) */
+  @media (max-width: 768px) {
+    .top-quote em {
+      color: var(--gold-dark);
+    }
+  }
+
   .process-section {
     background: var(--bg-dark3);
     padding: 4rem 2rem;
@@ -776,7 +833,6 @@
     color: var(--accent);
   }
 
-  /* ЦЕНА (светлый фон) */
   .price-section {
     background: var(--bg-light);
     padding: 4rem 2rem;
@@ -785,6 +841,16 @@
 
   .price-section h2 {
     color: var(--text-dark);
+  }
+
+  .price-section h2 em {
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .price-section h2 em {
+      color: var(--gold-dark);
+    }
   }
 
   .price-box {
@@ -821,6 +887,12 @@
     margin-bottom: 0.3rem;
   }
 
+  @media (max-width: 768px) {
+    .price-tag {
+      color: var(--gold-dark);
+    }
+  }
+
   .price-note {
     font-size: 0.9rem;
     color: var(--muted-dark);
@@ -837,7 +909,14 @@
   }
 
   .price-desc strong {
-    color: var(--accent);
+    color: var(--text-dark);
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .price-desc strong {
+      color: var(--text-dark);
+    }
   }
 
   .urgency-badge {
@@ -879,7 +958,16 @@
     transform: translateY(-2px);
   }
 
-  /* КЕЙС (тёмный) */
+  @media (max-width: 768px) {
+    .btn-outline {
+      color: var(--gold-dark);
+      border-color: var(--gold-dark);
+    }
+    .btn-outline:hover {
+      background: rgba(184, 149, 46, 0.08);
+    }
+  }
+
   .case-section {
     background: var(--bg-dark);
     padding: 4rem 2rem;
@@ -1020,7 +1108,6 @@
     }
   }
 
-  /* ОСНОВАТЕЛЬ (светлый) */
   .quote-section {
     background: var(--bg-light);
     padding: 4rem 2rem;
@@ -1032,6 +1119,16 @@
 
   .quote-section h2 {
     color: var(--text-dark);
+  }
+
+  .quote-section h2 em {
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .quote-section h2 em {
+      color: var(--gold-dark);
+    }
   }
 
   .quote-wrap {
@@ -1047,7 +1144,7 @@
     height: 280px;
     flex-shrink: 0;
     border-radius: 50%;
-    border: 2px solid var(--accent);
+    border: 2px solid rgba(200, 169, 110, 0.3);
     background: var(--bg-light2);
     display: flex;
     align-items: center;
@@ -1097,6 +1194,12 @@
     margin-bottom: 0.15rem;
   }
 
+  @media (max-width: 768px) {
+    .quote-author {
+      color: var(--gold-dark);
+    }
+  }
+
   .quote-role {
     color: var(--muted-dark);
     font-size: 0.8rem;
@@ -1115,6 +1218,12 @@
     color: var(--accent2);
   }
 
+  @media (max-width: 768px) {
+    .contact-link {
+      color: var(--gold-dark);
+    }
+  }
+
   .contact-phone a {
     color: var(--accent);
     text-decoration: none;
@@ -1123,6 +1232,12 @@
 
   .contact-phone a:hover {
     color: var(--accent2);
+  }
+
+  @media (max-width: 768px) {
+    .contact-phone a {
+      color: var(--gold-dark);
+    }
   }
 
   @media (max-width: 600px) {
@@ -1137,7 +1252,6 @@
     }
   }
 
-  /* FAQ (тёмный) */
   .faq-section {
     background: var(--bg-dark);
     padding: 4rem 2rem;
@@ -1238,7 +1352,6 @@
     line-height: 1.75;
   }
 
-  /* МАНИФЕСТ (светлый) */
   .manifest-section {
     background: var(--bg-light);
     padding: 4rem 2rem;
@@ -1247,6 +1360,16 @@
 
   .manifest-section h2 {
     color: var(--text-dark);
+  }
+
+  .manifest-section h2 em {
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .manifest-section h2 em {
+      color: var(--gold-dark);
+    }
   }
 
   .manifest-section .section-desc {
@@ -1288,8 +1411,8 @@
 
   .manifest-card h3 {
     font-size: 1rem;
-    font-weight: 600;
-    color: var(--accent);
+    font-weight: 700;
+    color: var(--text-dark);
     margin-bottom: 0.6rem;
     letter-spacing: 0.02em;
   }
@@ -1300,44 +1423,6 @@
     line-height: 1.7;
   }
 
-  /* БУТИК-ОТЕЛЬ (тёмный) */
-  .boutique-section {
-    background: var(--bg-dark2);
-    padding: 2rem 2rem 3rem;
-    text-align: center;
-    border-bottom: 1px solid var(--border-dark);
-  }
-
-  .boutique-block {
-    max-width: 650px;
-    margin: 0 auto;
-    color: var(--text-light);
-    line-height: 1.8;
-    font-size: 0.9rem;
-    font-style: italic;
-  }
-
-  /* CTA (светлый) */
-  .cta-after-manifest {
-    text-align: center;
-    padding: 2.5rem 2rem 4rem;
-    background: var(--bg-light);
-    border-bottom: 1px solid var(--border-light);
-  }
-
-  .cta-after-manifest .btn-primary {
-    font-size: 1rem;
-    padding: 0.9rem 2rem;
-  }
-
-  @media (max-width: 680px) {
-    .cta-after-manifest .btn-primary {
-      font-size: 0.85rem;
-      padding: 0.7rem 1.5rem;
-    }
-  }
-
-  /* ФОРМА (тёмный) */
   .form-section {
     background: var(--bg-dark2);
     padding: 4rem 2rem;
@@ -1461,7 +1546,6 @@
     font-size: 0.95rem;
   }
 
-  /* ФУТЕР (тёмный) */
   footer {
     background: var(--bg-dark);
     border-top: 1px solid var(--border-dark);
@@ -1532,7 +1616,6 @@
     <a href="#contact" class="cta-nav">Обсудить проект →</a>
   </nav>
 
-  <!-- HERO -->
   <section style="padding:0; position:relative;">
     <div class="hero">
       <div class="hero-eyebrow">Маркетинговые сайты со смыслом</div>
@@ -1544,7 +1627,6 @@
     </div>
   </section>
 
-  <!-- ИНТРО (светлый фон) -->
   <div class="intro-block fade-up">
     <div class="container">
       <p class="intro-text">
@@ -1556,7 +1638,6 @@
     </div>
   </div>
 
-  <!-- ЧТО МЕНЯЕТСЯ (тёмный фон) -->
   <section class="changes-section fade-up">
     <div class="container">
       <div class="section-label">Что меняется</div>
@@ -1588,7 +1669,6 @@
     </div>
   </section>
 
-  <!-- СМЫСЛ (светлый фон) -->
   <div class="sense-block fade-up">
     <div class="container">
       <div class="sense-text">
@@ -1599,7 +1679,6 @@
     </div>
   </div>
 
-  <!-- ГЛАЗ ОРЛА (тёмный фон) -->
   <section class="eagle-section fade-up" id="eagle">
     <div class="container">
       <div class="eagle-block">
@@ -1611,7 +1690,6 @@
     </div>
   </section>
 
-  <!-- ЦЕПОЧКА (светлый фон) -->
   <section class="chain-section fade-up">
     <div class="container">
       <div class="chain-title"><em>Метод</em> в действии</div>
@@ -1640,17 +1718,15 @@
     </div>
   </section>
 
-  <!-- ДЛЯ КОГО (тёмный фон) -->
   <section class="forwhom-section fade-up">
     <div class="container">
       <div class="section-label">Для кого</div>
       <p class="forwhom-text">
-        Мы работаем с собственниками, которые понимают, что сайт может быть не просто страницей в интернете, а <em>активом</em>, влияющим на восприятие бизнеса, доверие и продажи.
+        Мы работаем с собственниками, которые понимают, что сайт может быть не просто страницей в интернете, а активом, влияющим на восприятие бизнеса, доверие и продажи.
       </p>
     </div>
   </section>
 
-  <!-- СРАВНЕНИЕ (светлый фон) -->
   <section class="comparison-section fade-up">
     <div class="container">
       <div class="section-label">Разница есть</div>
@@ -1699,7 +1775,6 @@
     </div>
   </section>
 
-  <!-- ПРОЦЕСС (тёмный фон) -->
   <section class="process-section fade-up">
     <div class="container">
       <div class="section-label">Как мы работаем</div>
@@ -1737,14 +1812,13 @@
         </div>
       </div>
       <div class="process-text-block">
-        <p>Вы получаете включённую работу всех специалистов: смысловика-стратега, маркетолога, дизайнера, продажника и современных технологий, и все это под личным управлением основателя студии.</p>
+        <p>Вы получаете включённую работу всех специалистов в течение месяца: смысловика-стратега, маркетолога, дизайнера, продажника и современных технологий, и все это под личным управлением основателя студии.</p>
         <p class="highlight">Ключевой продукт, который вы получаете в итоге, не сайт - а инструмент, который будет работать на ваш бизнес годами.</p>
         <p>На всех слоях принятия решения у клиентов: через эмоции, впечатление, состояние, аргументы. С учетом сильного маркетинга и продающей системы.</p>
       </div>
     </div>
   </section>
 
-  <!-- ЦЕНА (светлый фон) -->
   <section class="price-section fade-up" id="price">
     <div class="container">
       <div class="section-label">Стоимость</div>
@@ -1769,7 +1843,6 @@
     </div>
   </section>
 
-  <!-- КЕЙС (тёмный фон) -->
   <section class="case-section fade-up">
     <div class="container">
       <div class="section-label">Кейс</div>
@@ -1806,7 +1879,6 @@
     </div>
   </section>
 
-  <!-- ОСНОВАТЕЛЬ (светлый фон) -->
   <div class="quote-section fade-up" id="founder">
     <div class="quote-wrap">
       <div class="quote-photo">
@@ -1814,7 +1886,7 @@
       </div>
       <div class="quote-text">
         <p class="section-label" style="margin-bottom:0.8rem;">Основатель</p>
-        <h2 style="font-size:1.5rem; margin-bottom:1rem;">Основатель, который лично находит <em>смысл вашего бизнеса</em></h2>
+        <h2>Основатель, который лично находит <em>смысл вашего бизнеса</em></h2>
         <div class="quote-manifest">
           <p>Всё началось с одной идеи: бизнесу не нужен ещё один сайт. Ему нужны аргументы, через которые клиент скажет: «Мне только к ним». Я создала метод, который работает через смыслы, ценности и манифест бизнеса.</p>
           <p>Я лично веду проекты и работаю напрямую с собственником. Именно при работе один на один с основателем бизнеса находятся самые сильные смыслы. Это принципы нашей студии и гарантия качества.</p>
@@ -1839,7 +1911,6 @@
     </div>
   </div>
 
-  <!-- FAQ (тёмный фон) -->
   <section class="faq-section fade-up" id="faq">
     <div class="container">
       <div class="section-label">Вопросы и ответы</div>
@@ -1893,7 +1964,6 @@
     </div>
   </section>
 
-  <!-- МАНИФЕСТ (светлый фон) -->
   <section class="manifest-section fade-up" id="manifest">
     <div class="container">
       <div class="section-label">Манифест МСС</div>
@@ -1919,21 +1989,6 @@
     </div>
   </section>
 
-  <!-- БУТИК-ОТЕЛЬ (тёмный фон) -->
-  <section class="boutique-section fade-up">
-    <div class="container">
-      <div class="boutique-block">
-        Мы работаем по концепции бутик-отеля. У нас нет потока или конвейера. К каждому сайту подходим индивидуально, закладываем в него личные ценности основателя. Мы погружаемся в смыслы, чтобы создать продукт, который будет работать годами. Не «красиво и продающе», а глубоко и по-настоящему.
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA (светлый фон) -->
-  <section class="cta-after-manifest fade-up">
-    <a href="#contact" class="btn-primary">Стать единственным выбором →</a>
-  </section>
-
-  <!-- ФОРМА (тёмный фон) -->
   <section class="form-section fade-up" id="contact">
     <div class="container">
       <div class="form-wrap">
@@ -2000,7 +2055,6 @@
     </div>
   </section>
 
-  <!-- ФУТЕР -->
   <footer>
     <div class="footer-brand">МСС·студия</div>
     <p>Маркетинговые сайты со смыслом</p>
