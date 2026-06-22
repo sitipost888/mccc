@@ -240,10 +240,11 @@
     font-size: 1rem;
   }
 
+  /* ИНТРО — ТЁМНЫЙ НА ДЕСКТОПЕ, СВЕТЛЫЙ НА МОБИЛКЕ */
   .intro-block {
-    background: var(--bg-light);
-    border-top: 1px solid var(--border-light);
-    border-bottom: 1px solid var(--border-light);
+    background: var(--bg-dark2);
+    border-top: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
     padding: 3.5rem 2rem;
     text-align: center;
     position: relative;
@@ -256,7 +257,7 @@
     max-width: 750px;
     margin: 0 auto;
     line-height: 1.7;
-    color: var(--text-dark);
+    color: var(--text-light);
     text-align: center;
   }
 
@@ -265,8 +266,13 @@
   }
 
   @media (max-width: 768px) {
+    .intro-block {
+      background: var(--bg-light);
+      border-color: var(--border-light);
+    }
     .intro-text {
       font-size: 0.9rem;
+      color: var(--text-dark);
     }
     .intro-text .highlight {
       color: var(--gold-dark);
@@ -349,28 +355,35 @@
     }
   }
 
+  /* СМЫСЛ — ТЁМНЫЙ НА ДЕСКТОПЕ, СВЕТЛЫЙ НА МОБИЛКЕ */
   .sense-block {
-    background: var(--bg-light);
+    background: var(--bg-dark2);
     padding: 3rem 2rem 2rem;
     text-align: center;
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-dark);
   }
 
   .sense-text {
     max-width: 700px;
     margin: 0 auto;
     font-size: 0.95rem;
-    color: var(--text-dark);
+    color: var(--text-light);
     font-weight: 400;
+    font-style: italic;
     line-height: 1.8;
   }
 
   .sense-text strong {
-    color: var(--text-dark);
-    font-weight: 400;
+    color: var(--accent);
+    font-weight: 700;
+    font-style: normal;
   }
 
   @media (max-width: 768px) {
+    .sense-block {
+      background: var(--bg-light);
+      border-color: var(--border-light);
+    }
     .sense-text {
       color: var(--text-dark);
     }
@@ -401,17 +414,18 @@
     font-weight: 600;
   }
 
+  /* ЦЕПОЧКА — ТЁМНАЯ НА ДЕСКТОПЕ, СВЕТЛАЯ НА МОБИЛКЕ */
   .chain-section {
-    background: var(--bg-light);
+    background: var(--bg-dark2);
     padding: 4rem 2rem;
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-dark);
   }
 
   .chain-title {
     text-align: center;
     font-size: 1.8rem;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-light);
     margin-bottom: 0.3rem;
   }
 
@@ -424,18 +438,8 @@
     text-align: center;
     font-size: 0.95rem;
     font-weight: 400;
-    color: var(--text-dark);
+    color: var(--muted-light);
     margin-bottom: 2.5rem;
-  }
-
-  @media (max-width: 768px) {
-    .chain-title em {
-      color: var(--gold-dark);
-    }
-    .chain-subtitle {
-      color: var(--text-dark);
-      font-weight: 400;
-    }
   }
 
   .chain-wrapper {
@@ -450,8 +454,8 @@
     flex: 1;
     min-width: 200px;
     max-width: 240px;
-    background: var(--bg-light2);
-    border: 1px solid var(--border-light);
+    background: var(--bg-dark3);
+    border: 1px solid var(--border-dark);
     border-radius: 10px;
     padding: 1.8rem 1.2rem;
     text-align: center;
@@ -468,26 +472,14 @@
   .chain-item .step-label {
     font-size: 1.05rem;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--accent);
     margin-bottom: 0.6rem;
   }
 
   .chain-item .step-desc {
     font-size: 0.85rem;
-    color: var(--text-dark);
+    color: var(--muted-light);
     line-height: 1.6;
-    font-weight: 400;
-  }
-
-  @media (max-width: 768px) {
-    .chain-item .step-label {
-      color: var(--text-dark);
-      font-weight: 600;
-    }
-    .chain-item .step-desc {
-      color: var(--text-dark);
-      font-weight: 400;
-    }
   }
 
   .chain-arrow {
@@ -502,6 +494,32 @@
   }
 
   @media (max-width: 768px) {
+    .chain-section {
+      background: var(--bg-light);
+      border-color: var(--border-light);
+    }
+    .chain-title {
+      color: var(--text-dark);
+    }
+    .chain-title em {
+      color: var(--gold-dark);
+    }
+    .chain-subtitle {
+      color: var(--text-dark);
+      font-weight: 400;
+    }
+    .chain-item {
+      background: var(--bg-light2);
+      border-color: var(--border-light);
+    }
+    .chain-item .step-label {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+    .chain-item .step-desc {
+      color: var(--text-dark);
+      font-weight: 400;
+    }
     .chain-wrapper {
       flex-direction: column;
       align-items: center;
@@ -537,25 +555,20 @@
     }
   }
 
+  /* СРАВНЕНИЕ — ТЁМНОЕ НА ДЕСКТОПЕ, СВЕТЛОЕ НА МОБИЛКЕ */
   .comparison-section {
-    background: var(--bg-light);
+    background: var(--bg-dark);
     padding: 4rem 2rem;
-    border-top: 1px solid var(--border-light);
-    border-bottom: 1px solid var(--border-light);
+    border-top: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
   }
 
   .comparison-section h2 {
-    color: var(--text-dark);
+    color: var(--text-light);
   }
 
   .comparison-section .section-desc {
-    color: var(--text-dark);
-  }
-
-  @media (max-width: 768px) {
-    .comparison-section .section-desc {
-      color: var(--text-dark);
-    }
+    color: var(--muted-light);
   }
 
   .comparison-header {
@@ -569,14 +582,14 @@
   }
 
   .comparison-header .header-left {
-    background: var(--bg-light2);
-    border: 1px solid var(--border-light);
+    background: var(--bg-dark2);
+    border: 1px solid var(--border-dark);
     border-right: none;
     padding: 1rem 1.5rem;
     text-align: center;
     font-weight: 600;
     font-size: 0.9rem;
-    color: var(--text-dark);
+    color: var(--text-light);
     letter-spacing: 0.04em;
     display: flex;
     align-items: center;
@@ -590,24 +603,18 @@
     text-align: center;
     font-weight: 600;
     font-size: 0.9rem;
-    color: var(--gold-dark);
+    color: var(--accent);
     letter-spacing: 0.04em;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  @media (max-width: 768px) {
-    .comparison-header .header-right {
-      color: var(--gold-dark);
-    }
-  }
-
   .comparison-row {
     display: grid;
     grid-template-columns: 30% 70%;
     gap: 0;
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-dark);
     transition: background 0.3s ease;
   }
 
@@ -622,8 +629,8 @@
   }
 
   .comparison-row .row-left {
-    background: var(--bg-light2);
-    border-left: 1px solid var(--border-light);
+    background: var(--bg-dark2);
+    border-left: 1px solid var(--border-dark);
     border-right: none;
     padding: 1rem 1.5rem;
     display: flex;
@@ -633,22 +640,16 @@
 
   .comparison-row .row-left .label {
     font-size: 0.7rem;
-    color: var(--gold-dark);
+    color: var(--accent);
     font-weight: 500;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     margin-bottom: 0.2rem;
   }
 
-  @media (max-width: 768px) {
-    .comparison-row .row-left .label {
-      color: var(--gold-dark);
-    }
-  }
-
   .comparison-row .row-left .text {
     font-size: 0.9rem;
-    color: var(--text-dark);
+    color: var(--text-light);
     line-height: 1.5;
     font-weight: 400;
   }
@@ -665,25 +666,49 @@
 
   .comparison-row .row-right .text {
     font-size: 0.9rem;
-    color: var(--text-dark);
+    color: var(--text-light);
     line-height: 1.6;
     font-weight: 400;
   }
 
   @media (max-width: 768px) {
+    .comparison-section {
+      background: var(--bg-light);
+      border-color: var(--border-light);
+    }
+    .comparison-section h2 {
+      color: var(--text-dark);
+    }
+    .comparison-section .section-desc {
+      color: var(--text-dark);
+    }
+    .comparison-header .header-left {
+      background: var(--bg-light2);
+      border-color: var(--border-light);
+      color: var(--text-dark);
+    }
+    .comparison-header .header-right {
+      color: var(--gold-dark);
+    }
+    .comparison-row {
+      border-color: var(--border-light);
+    }
+    .comparison-row .row-left {
+      background: var(--bg-light2);
+      border-color: var(--border-light);
+    }
+    .comparison-row .row-left .label {
+      color: var(--gold-dark);
+    }
     .comparison-row .row-left .text {
       color: var(--text-dark);
     }
     .comparison-row .row-right .text {
       color: var(--text-dark);
     }
-  }
-
-  @media (max-width: 680px) {
     .comparison-header {
       display: none;
     }
-
     .comparison-row {
       display: block;
       border: 1px solid var(--border-light);
@@ -691,14 +716,12 @@
       margin-bottom: 1.5rem;
       overflow: hidden;
     }
-
     .comparison-row .row-left {
       border: none;
       border-bottom: 1px solid var(--border-light);
       padding: 1rem;
       background: var(--bg-light2);
     }
-
     .comparison-row .row-left .label {
       font-size: 0.7rem;
       color: var(--gold-dark);
@@ -707,20 +730,17 @@
       text-transform: uppercase;
       margin-bottom: 0.3rem;
     }
-
     .comparison-row .row-left .text {
       font-size: 0.9rem;
       color: var(--text-dark);
       line-height: 1.5;
       font-weight: 400;
     }
-
     .comparison-row .row-right {
       border: none;
       padding: 1rem;
       background: rgba(200, 169, 110, 0.08);
     }
-
     .comparison-row .row-right .text {
       font-size: 0.9rem;
       color: var(--text-dark);
@@ -735,7 +755,7 @@
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.5;
-    color: var(--text-dark);
+    color: var(--text-light);
   }
 
   .top-quote em {
@@ -744,6 +764,9 @@
   }
 
   @media (max-width: 768px) {
+    .top-quote {
+      color: var(--text-dark);
+    }
     .top-quote em {
       color: var(--gold-dark);
     }
@@ -847,29 +870,24 @@
     color: var(--accent);
   }
 
+  /* ЦЕНА — ТЁМНАЯ НА ДЕСКТОПЕ, СВЕТЛАЯ НА МОБИЛКЕ */
   .price-section {
-    background: var(--bg-light);
+    background: var(--bg-dark2);
     padding: 4rem 2rem;
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-dark);
   }
 
   .price-section h2 {
-    color: var(--text-dark);
+    color: var(--text-light);
   }
 
   .price-section h2 em {
     color: var(--accent);
   }
 
-  @media (max-width: 768px) {
-    .price-section h2 em {
-      color: var(--gold-dark);
-    }
-  }
-
   .price-box {
-    background: var(--bg-light2);
-    border: 1px solid var(--border-light);
+    background: var(--bg-dark3);
+    border: 1px solid var(--border-dark);
     border-radius: 12px;
     padding: 2.5rem;
     max-width: 620px;
@@ -880,7 +898,7 @@
 
   .price-box:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
   }
 
   .price-box::before {
@@ -901,51 +919,33 @@
     margin-bottom: 0.3rem;
   }
 
-  @media (max-width: 768px) {
-    .price-tag {
-      color: var(--gold-dark);
-    }
-  }
-
   .price-note {
     font-size: 0.9rem;
-    color: var(--text-dark);
+    color: var(--muted-light);
     margin-bottom: 1.5rem;
-    font-weight: 400;
-  }
-
-  @media (max-width: 768px) {
-    .price-note {
-      color: var(--text-dark);
-    }
+    font-style: italic;
+    font-weight: 300;
   }
 
   .price-desc {
     font-size: 0.85rem;
-    color: var(--text-dark);
+    color: var(--muted-light);
     line-height: 1.7;
     margin-bottom: 1.5rem;
-    font-weight: 400;
   }
 
   .price-desc strong {
-    color: var(--text-dark);
-    font-weight: 700;
-  }
-
-  @media (max-width: 768px) {
-    .price-desc strong {
-      color: var(--text-dark);
-    }
+    color: var(--accent);
+    font-weight: 600;
   }
 
   .urgency-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(101, 0, 11, 0.08);
-    border: 1px solid rgba(101, 0, 11, 0.15);
-    color: #8a3a3a;
+    background: rgba(101, 0, 11, 0.15);
+    border: 1px solid rgba(101, 0, 11, 0.3);
+    color: #c45a5a;
     font-size: 0.8rem;
     font-weight: 500;
     padding: 0.4rem 1rem;
@@ -979,6 +979,35 @@
   }
 
   @media (max-width: 768px) {
+    .price-section {
+      background: var(--bg-light);
+      border-color: var(--border-light);
+    }
+    .price-section h2 {
+      color: var(--text-dark);
+    }
+    .price-section h2 em {
+      color: var(--gold-dark);
+    }
+    .price-box {
+      background: var(--bg-light2);
+      border-color: var(--border-light);
+    }
+    .price-tag {
+      color: var(--gold-dark);
+    }
+    .price-note {
+      color: var(--text-dark);
+      font-weight: 400;
+    }
+    .price-desc {
+      color: var(--text-dark);
+      font-weight: 400;
+    }
+    .price-desc strong {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
     .btn-outline {
       color: var(--gold-dark);
       border-color: var(--gold-dark);
@@ -1135,27 +1164,22 @@
     }
   }
 
+  /* ОСНОВАТЕЛЬ — ТЁМНЫЙ НА ДЕСКТОПЕ, СВЕТЛЫЙ НА МОБИЛКЕ */
   .quote-section {
-    background: var(--bg-light);
+    background: var(--bg-dark2);
     padding: 4rem 2rem;
     position: relative;
     z-index: 1;
-    border-top: 1px solid var(--border-light);
-    border-bottom: 1px solid var(--border-light);
+    border-top: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
   }
 
   .quote-section h2 {
-    color: var(--text-dark);
+    color: var(--text-light);
   }
 
   .quote-section h2 em {
     color: var(--accent);
-  }
-
-  @media (max-width: 768px) {
-    .quote-section h2 em {
-      color: var(--gold-dark);
-    }
   }
 
   .quote-wrap {
@@ -1171,8 +1195,8 @@
     height: 280px;
     flex-shrink: 0;
     border-radius: 50%;
-    border: 2px solid rgba(200, 169, 110, 0.3);
-    background: var(--bg-light2);
+    border: 2px solid var(--accent);
+    background: var(--bg-dark3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1182,7 +1206,7 @@
 
   .quote-photo:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 30px rgba(200, 169, 110, 0.08);
+    box-shadow: 0 8px 30px rgba(200, 169, 110, 0.15);
   }
 
   .quote-photo img {
@@ -1200,7 +1224,7 @@
     font-size: 0.95rem;
     font-weight: 300;
     font-style: italic;
-    color: var(--text-dark);
+    color: var(--text-light);
     line-height: 1.7;
     margin-bottom: 1rem;
   }
@@ -1213,12 +1237,6 @@
     margin-bottom: 0;
   }
 
-  @media (max-width: 768px) {
-    .quote-text .quote-manifest {
-      color: var(--text-dark);
-    }
-  }
-
   .quote-author {
     color: var(--accent);
     font-size: 0.9rem;
@@ -1227,24 +1245,11 @@
     margin-bottom: 0.15rem;
   }
 
-  @media (max-width: 768px) {
-    .quote-author {
-      color: var(--gold-dark);
-    }
-  }
-
   .quote-role {
-    color: var(--text-dark);
+    color: var(--muted-light);
     font-size: 0.8rem;
-    font-weight: 400;
+    font-weight: 300;
     letter-spacing: 0.03em;
-  }
-
-  @media (max-width: 768px) {
-    .quote-role {
-      color: var(--text-dark);
-      font-weight: 400;
-    }
   }
 
   .contact-link {
@@ -1258,12 +1263,6 @@
     color: var(--accent2);
   }
 
-  @media (max-width: 768px) {
-    .contact-link {
-      color: var(--gold-dark);
-    }
-  }
-
   .contact-phone a {
     color: var(--accent);
     text-decoration: none;
@@ -1275,8 +1274,29 @@
   }
 
   @media (max-width: 768px) {
-    .contact-phone a {
+    .quote-section {
+      background: var(--bg-light);
+      border-color: var(--border-light);
+    }
+    .quote-section h2 {
+      color: var(--text-dark);
+    }
+    .quote-section h2 em {
       color: var(--gold-dark);
+    }
+    .quote-photo {
+      border-color: rgba(200, 169, 110, 0.3);
+      background: var(--bg-light2);
+    }
+    .quote-text .quote-manifest {
+      color: var(--text-dark);
+    }
+    .quote-author {
+      color: var(--gold-dark);
+    }
+    .quote-role {
+      color: var(--text-dark);
+      font-weight: 400;
     }
   }
 
@@ -1392,34 +1412,23 @@
     line-height: 1.75;
   }
 
+  /* МАНИФЕСТ — ТЁМНЫЙ НА ДЕСКТОПЕ, СВЕТЛЫЙ НА МОБИЛКЕ */
   .manifest-section {
-    background: var(--bg-light);
+    background: var(--bg-dark2);
     padding: 4rem 2rem;
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-dark);
   }
 
   .manifest-section h2 {
-    color: var(--text-dark);
+    color: var(--text-light);
   }
 
   .manifest-section h2 em {
     color: var(--accent);
   }
 
-  @media (max-width: 768px) {
-    .manifest-section h2 em {
-      color: var(--gold-dark);
-    }
-  }
-
   .manifest-section .section-desc {
-    color: var(--text-dark);
-  }
-
-  @media (max-width: 768px) {
-    .manifest-section .section-desc {
-      color: var(--text-dark);
-    }
+    color: var(--muted-light);
   }
 
   .manifest-grid {
@@ -1430,8 +1439,8 @@
   }
 
   .manifest-card {
-    background: var(--bg-light2);
-    border: 1px solid var(--border-light);
+    background: var(--bg-dark3);
+    border: 1px solid var(--border-dark);
     border-radius: 10px;
     padding: 2rem;
     position: relative;
@@ -1457,26 +1466,43 @@
 
   .manifest-card h3 {
     font-size: 1rem;
-    font-weight: 700;
-    color: var(--text-dark);
+    font-weight: 600;
+    color: var(--accent);
     margin-bottom: 0.6rem;
     letter-spacing: 0.02em;
   }
 
   .manifest-card p {
     font-size: 0.9rem;
-    color: var(--text-dark);
+    color: var(--muted-light);
     line-height: 1.7;
-    font-weight: 400;
   }
 
   @media (max-width: 768px) {
+    .manifest-section {
+      background: var(--bg-light);
+      border-color: var(--border-light);
+    }
+    .manifest-section h2 {
+      color: var(--text-dark);
+    }
+    .manifest-section h2 em {
+      color: var(--gold-dark);
+    }
+    .manifest-section .section-desc {
+      color: var(--text-dark);
+    }
+    .manifest-card {
+      background: var(--bg-light2);
+      border-color: var(--border-light);
+    }
     .manifest-card h3 {
       color: var(--text-dark);
       font-weight: 700;
     }
     .manifest-card p {
       color: var(--text-dark);
+      font-weight: 400;
     }
   }
 
@@ -1503,7 +1529,7 @@
   }
 
   .form-left p {
-    color: var(--text-dark);
+    color: var(--muted-light);
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
   }
@@ -1830,7 +1856,7 @@
         </div>
       </div>
 
-      <div style="margin-top:3rem; text-align:center; border-top:1px solid var(--border-light); padding-top:2.5rem;">
+      <div style="margin-top:3rem; text-align:center; border-top:1px solid var(--border-dark); padding-top:2.5rem;">
         <p class="top-quote">
           Пока клиент не видит разницы -<br>он сравнивает цены.<br><em>Смыслы убирают сравнение.</em><br>Даже если вокруг демпингуют.
         </p>
@@ -1959,7 +1985,7 @@
         <p class="quote-role">Основатель МСС, больше 10 лет в маркетинге, сайтах и смыслах</p>
         <div style="margin-top:1.5rem;">
           <div>
-            <span style="color:var(--muted-dark); font-size:0.9rem;">Связаться в мессенджерах:</span>
+            <span style="color:var(--muted-light); font-size:0.9rem;">Связаться в мессенджерах:</span>
           </div>
           <div>
             <a href="https://t.me/+79235703335" target="_blank" class="contact-link">Telegram</a>, 
